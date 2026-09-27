@@ -1,117 +1,357 @@
 # OpenMind Studio
 
-A portable, native desktop code editor built with Rust, Tauri 2, React, and Monaco Editor.
-Not a web app — everything runs from the application's own directory, with no admin rights and
-no dependency on globally installed software.
+**OpenMind Studio** is a portable desktop IDE for Windows, built for students, developers, and restricted lab/university PCs where global installs and administrator access are often not available.
 
-OpenMind Studio is the desktop IDE in the OpenMind ecosystem:
+It is not a web app. It is a native desktop application built with **Rust, Tauri 2, React, TypeScript, and Monaco Editor**. The goal is simple: open a project, edit code, run commands, manage local runtimes, preview files, search a workspace, and work with Git without depending on a globally configured development machine.
 
-- **OpenMind Studio** — Desktop IDE (this project)
-- **OpenMind AI** — AI Assistant (future)
-- **OpenMind Runtime** — Portable Runtime Manager (built in: Node.js, Python, Git, PHP, Composer, MariaDB, phpMyAdmin)
-- **OpenMind Extensions** — extension ecosystem (future)
-- **OpenMind Sync** / **OpenMind Cloud** — future
+---
 
-## What it does
+## Current release
 
-Explorer, Monaco editor with tabs and split editors, integrated terminal, Run Code, a Git client,
-language servers (LSP) with a Problems panel, a debugger for Python and Node.js (DAP), a portable PHP
-stack with a control panel, and Settings, Keyboard Shortcuts and themes (Dark, Light, High Contrast,
-System) you can edit from a page or as JSON.
+**Version:** `0.1.0`  
+**Status:** first stable public/test release base  
+**License:** Apache License 2.0 (`Apache-2.0`)  
+**Build type:** unsigned Windows builds
 
-## Portable edition
+Available artifacts in this repository:
 
-Download `OpenMindStudio-<version>-portable-win-x64.zip`, unzip it anywhere (a USB drive, a path with
-spaces) and run `OpenMindStudio.exe`. Nothing is installed; no administrator rights are needed; your
-Registry, `AppData` and `PATH` are never touched. Everything the app keeps is next to the executable:
+| Artifact | Architecture | Purpose |
+| --- | --- | --- |
+| `OpenMind-Studio-Setup-0.1.0-x64.exe` | x64 | Recommended installer for 64-bit Windows |
+| `OpenMind-Studio-0.1.0-x64.msi` | x64 | MSI package for 64-bit Windows |
+| `OpenMind-Studio-Setup-0.1.0-x86.exe` | x86 | Installer for 32-bit Windows |
+| `OpenMind-Studio-0.1.0-x86.msi` | x86 | MSI package for 32-bit Windows |
+| `SHA256SUMS.txt` | all | Checksums for release files |
+| `RELEASE-REPORT.md` | all | Release artifact report |
 
-```text
-OpenMind Studio/
-    OpenMindStudio.exe
-    data/openmind-studio.db   SQLite (WAL)
-    settings/                 settings.json, keybindings.json
-    runtimes/                 portable Node.js, Python, Git, PHP ... (installed from the Runtime Manager)
-    cache/  logs/  language-servers/
+> The installers are currently **not code-signed**. Windows SmartScreen may show a warning until a production signing certificate is used.
+
+---
+
+## Why use OpenMind Studio?
+
+Use OpenMind Studio when you need a development environment that is:
+
+- **Portable** — designed to run from its own app folder.
+- **Student/lab friendly** — useful on PCs where admin rights are limited.
+- **Runtime aware** — manages portable tools such as Node.js, Python, PHP, Git, Composer, MariaDB, and phpMyAdmin.
+- **Project focused** — detects common web, backend, desktop, mobile, scripting, systems, Docker, database, and config projects.
+- **Offline friendly** — core app features do not require an account or cloud service.
+- **Safe by default** — no User/Machine `PATH` mutation, no hidden runtime installs, no hidden AI requests.
+
+OpenMind Studio is especially useful for:
+
+- HTML/CSS/JavaScript/TypeScript projects
+- React/Vite/Next.js-style web apps
+- Python scripts and backend apps
+- PHP/Laravel projects with local MariaDB/phpMyAdmin
+- Rust, Go, Docker, SQL, Markdown, JSON/YAML/TOML projects
+- mixed-language university or training projects
+
+---
+
+## What is included
+
+### Editor and workspace
+
+- Monaco-based code editor
+- Tabs and split editor workflow
+- File explorer
+- Workspace session restore
+- Recent files and folders
+- Search, symbols, and reference search foundation
+- VS Code-like application menus
+- Keyboard shortcuts and settings UI
+- Profiles and icon themes
+
+### Formatting and code quality
+
+- Format Document support
+- Format on Save support
+- Built-in JSON/package.json formatting
+- Formatter/tool discovery for common stacks
+- Clear missing-formatter messages when a formatter is not available
+
+### Terminal and runtime management
+
+- Integrated terminal
+- Portable runtime manager
+- Portable runtime/tool preference before system fallback
+- App-local environment injection for launched terminals/processes
+- No global `PATH` change
+
+Supported runtime/tool areas include:
+
+- Node.js
+- Python
+- PHP
+- Git
+- Composer
+- MariaDB
+- phpMyAdmin
+- language tools and toolchain manifests
+
+### Git and source control
+
+- Source Control view
+- Portable Git support
+- Git resolver that prefers OpenMind-managed Git when available
+- No need to modify system Git configuration just to use the editor
+
+### PHP local stack
+
+OpenMind Studio includes a professional local PHP stack workflow:
+
+- PHP server control panel
+- MariaDB start/stop/restart support
+- phpMyAdmin integration
+- Composer tools
+- Laravel helper area
+- Database credentials shown safely with masked password, reveal, and copy actions
+- No automatic `.env` rewrite without user action
+
+### Preview system
+
+Read-only previews are available for common project files:
+
+- Images: PNG, JPG/JPEG, WebP, GIF, BMP, SVG
+- PDF
+- DOCX
+- XLSX
+- CSV
+- Markdown
+- HTML
+- LaTeX source
+- Binary/unsupported files show safe messages instead of loading incorrectly
+
+### AI provider architecture
+
+OpenMind Studio has an optional AI provider system:
+
+- Claude provider path
+- OpenAI/OpenAI-compatible provider path
+- Gemini provider path
+- local loopback OpenAI-compatible provider path
+- encrypted API key storage
+- no AI panel unless at least one provider is configured/enabled
+- no hidden AI request at launch
+- online providers ask before sending content
+
+AI is optional. The base editor works without AI.
+
+### Extensions
+
+OpenMind Studio includes an extension foundation:
+
+- local VSIX install
+- extension enable/disable/uninstall
+- commands, keybindings, menus, languages, snippets, themes
+- activity bar views and tree views
+- status bar items
+- secure WebviewPanel support
+- permission guard
+
+Full VS Code extension compatibility is still a long-term goal. Some APIs such as WebviewView, Terminal API, Task API, Notebook API, and full Debug extension API are not complete yet.
+
+---
+
+## Language Server Protocol support
+
+The project includes LSP foundation and support for core editor intelligence. Current built-in/core areas include:
+
+- TypeScript / JavaScript
+- JSON
+- HTML
+- CSS
+- PHP/Python where configured through available tools
+
+Some additional language servers may be detected but not fully startable until bundled/offline LSP packs are completed.
+
+Planned next-stage work includes a larger offline LSP bundle so common language servers can be shipped app-local without runtime downloads.
+
+---
+
+## Install and run
+
+### Recommended: setup installer
+
+Download the matching installer for your Windows architecture:
+
+- 64-bit Windows: `OpenMind-Studio-Setup-0.1.0-x64.exe`
+- 32-bit Windows: `OpenMind-Studio-Setup-0.1.0-x86.exe`
+
+The installer shows the Apache License 2.0 agreement. You must accept the license before installation continues.
+
+### MSI packages
+
+Use MSI when you specifically need MSI-based installation:
+
+- `OpenMind-Studio-0.1.0-x64.msi`
+- `OpenMind-Studio-0.1.0-x86.msi`
+
+MSI installation may require administrator approval depending on Windows policy.
+
+### Verify downloads
+
+Use `SHA256SUMS.txt` to verify downloaded files.
+
+Example with PowerShell:
+
+```powershell
+Get-FileHash .\OpenMind-Studio-Setup-0.1.0-x64.exe -Algorithm SHA256
 ```
 
-A folder's own settings live inside the project, in `.openmind/settings.json`.
+Compare the output with `SHA256SUMS.txt`.
 
-## Settings and shortcuts
+---
 
-`Ctrl+,` opens Settings (User and Workspace, searchable, with Reset per setting); "Open Settings (JSON)"
-edits the same file by hand and saving it applies it. Keyboard Shortcuts lists every command, lets you
-change, remove and reset a key, warns about conflicts, and stores your changes in `keybindings.json`.
+## Privacy and safety model
 
-## Tech stack
+OpenMind Studio is designed around local-first development.
 
-Rust · Tokio · Tauri 2 · SQLite (WAL, via `sqlx`) · React 19 · TypeScript (strict) · Vite · pnpm ·
-Monaco Editor.
+- No hidden AI requests
+- No hidden marketplace fetch at app launch
+- No User/Machine `PATH` mutation
+- No global runtime install
+- No admin requirement for normal app operation
+- API keys are not shown in logs
+- DB passwords are masked by default
+- Extension permissions are guarded
+- Online actions happen only after user action
 
-## Getting started (development)
+Some Windows WebView2 background connections may appear because WebView2 is a Microsoft runtime component.
 
-Prerequisites: a stable Rust toolchain (pinned in `rust-toolchain.toml`), Node.js, and pnpm.
+---
+
+## What OpenMind Studio is not
+
+OpenMind Studio is **not** trying to be a cloud IDE or a browser-only editor.
+
+It is also not yet:
+
+- full VS Code API parity
+- a full mobile emulator/device manager
+- a full notebook editor
+- a signed production Windows release
+- an auto-updating app
+- a cloud sync product
+
+Those areas are part of the longer roadmap.
+
+---
+
+## Development setup
+
+Prerequisites:
+
+- Rust toolchain
+- Node.js
+- pnpm
+
+Install frontend dependencies:
 
 ```sh
-pnpm install     # frontend dependencies
-pnpm tauri dev   # run the app in development mode
+pnpm install
 ```
 
-Other useful commands:
+Run in development mode:
 
 ```sh
-cargo build --workspace   # build all Rust crates
-cargo test --workspace    # run Rust tests
-cargo clippy --workspace --all-targets -- -D warnings
+pnpm tauri dev
+```
+
+Useful validation commands:
+
+```sh
 cargo fmt --check
+cargo clippy --workspace --all-targets -- -D warnings
+cargo test --workspace
 
-pnpm build   # type-check and build the frontend
-pnpm lint    # ESLint
-pnpm test    # Vitest
+pnpm lint
+pnpm test
+pnpm build
 ```
+
+---
 
 ## Packaging
 
+Typical packaging commands:
+
 ```sh
-pnpm package:portable      # release build + dist-portable/OpenMindStudio-<version>-portable-win-x64.zip (+ .sha256)
-pnpm package:installer     # per-user NSIS installer (tauri build --bundles nsis)
+pnpm package:installer
+pnpm package:portable
 ```
 
-Neither is code-signed. The installer installs for the current user (no administrator rights); the
-app is exe-relative either way, so an installed copy keeps its data next to the installed executable.
+Release artifacts should include:
 
-## Project layout
+- setup EXE
+- MSI
+- SHA256 checksums
+- release report
 
-- `crates/*` — domain crates (`openmind-core`, `-db`, `-settings`, `-fs`, `-workspace`, `-terminal`,
-  `-runtime-manager`, `-runner`, `-git`, `-lsp`, `-dap`, `-search`, `-file-watch`, `-process`).
-- `src-tauri` — the Tauri application (composition root, Cargo package `openmind-studio`; the built
-  executable is `OpenMindStudio.exe`).
-- `src/` — the React/TypeScript frontend.
+Signing is optional and environment-driven. Do not commit certificates or signing passwords.
 
-## OpenMind Studio - offline language server bundle (lsp\)
+---
 
-This folder holds the language servers that ship with OpenMind Studio, so code
-intelligence (completion, hover, diagnostics, go to definition, rename,
-formatting) works with no download and no internet connection:
+## Project structure
 
-  bundle.json               what is in this folder, with a SHA256 for every file
-  node\node.exe             the Node.js that runs the Node-based servers
-  packs\<server>-<n>.zip    one archive per language server package
-  THIRD-PARTY-NOTICES.txt   every component and its licence
+```text
+crates/       Rust domain crates
+src-tauri/    Tauri desktop shell and backend command layer
+src/          React + TypeScript frontend
+scripts/      build, packaging, and tooling scripts
+docs/         release, sync, toolchain, and development documentation
+```
 
-A pack is unpacked into ..\language-servers\ the first time a file of its
-language is opened inside a folder (its SHA256 is checked first). Nothing here
-is ever added to PATH, installed system-wide or started at launch, and no
-administrator rights are needed. Delete ..\language-servers\ to unpack again.
+---
 
-Servers: TypeScript/JavaScript, Python (Pyright), HTML, CSS/SCSS/Less, JSON,
-YAML, Bash, Dockerfile, Rust (rust-analyzer), C/C++ (clangd). The PHP server
-(Intelephense) is not included - its licence does not allow redistribution -
-and is installed from npm only when you press Install in Language Tools.
+## Roadmap highlights
 
-For developers: this folder is generated by `pnpm lsp:bundle`
-(scripts/prepare-lsp-bundle.mjs, see docs/lsp-bundle.md). Only this README is
-committed; release builds copy the whole folder next to the executable as lsp\.
+Completed major areas include:
+
+- editor/workspace foundation
+- integrated terminal
+- runtime manager
+- Git/source control
+- LSP/DAP foundation
+- PHP/MariaDB/phpMyAdmin stack
+- extension system v1
+- file preview system
+- indexed search
+- AI provider architecture
+- language/project detection
+- toolchain pack system
+- application menu and About window
+- formatting system
+- profiles, icon themes, startup/release prep
+
+Planned future milestones include:
+
+- offline bundled LSP pack
+- Extension System v2 / stronger VS Code compatibility
+- advanced debug/tasks/notebook support
+- system-language localization
+- proxy-aware terminal/network resilience
+- Visual Studio-style optional workload installer
+
+---
+
+## Author
+
+**Md Shahanur Islam Shagor**  
+Founder & Developer, OpenMind Studio  
+Independent Researcher and Software Engineer
+
+Support: `smshagor.dev@gmail.com`  
+GitHub: `smshagor-dev`  
+Telegram: `@smshagor1`  
+WhatsApp: `smshagor1`
+
+---
 
 ## License
 
-Apache License 2.0 (`Apache-2.0`).
+OpenMind Studio is released under the **Apache License 2.0**.
+
+See [`LICENSE`](LICENSE).
