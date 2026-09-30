@@ -1,17 +1,68 @@
-# OpenMind Studio 0.1.0 — release artifacts
+# OpenMind Studio v1.0.0 — Release Report
 
-- Version: 0.1.0
-- Architecture: x64, x86
-- Build type: **unsigned**
-- Built: 2026-09-27T07:50:52.410Z
+**Release:** v1.0.0  
+**Channel:** Stable  
+**Platform:** Windows 10 / 11  
+**Architectures:** x64 and x86  
+**Published:** 2026-09-30  
+**Distribution:** GitHub Releases
 
-| File | Kind | Size | SHA256 |
-| --- | --- | --- | --- |
-| OpenMind-Studio-Setup-0.1.0-x64.exe | setup | 11.1 MB | `65612e321336e030dc099abf2d434d5f86351600ca05f20b2ba57eb7987d99bb` |
-| OpenMind-Studio-0.1.0-x64.msi | msi | 13.4 MB | `67aa39868a5dc7282ee3ba8b41c885df564fea4707cb4707fc267411b52dfcbf` |
-| OpenMind-Studio-Setup-0.1.0-x86.exe | setup | 10.7 MB | `3770bbda42838aafc45c538d0971105fb0ffeb4abc39e6e2b168328438414f8b` |
-| OpenMind-Studio-0.1.0-x86.msi | msi | 12.8 MB | `e523273db64421d40bf69da4368415efc71e8a05251d585ce7d42cbd64e78259` |
+OpenMind Studio v1.0.0 is the first stable production release focused on portable development for university labs, office computers, shared Windows systems, and other restricted PCs where administrator access or system-wide developer tooling may not be available.
 
-These files are **not code-signed**: Windows SmartScreen will show a warning. Production signing needs a real certificate (docs/release.md).
+## Release downloads
 
-Signing: {"mode":"unsigned","message":"No signing certificate configured (SIGNING_CERT_PATH / SIGNING_CERT_PASSWORD): building UNSIGNED. Windows SmartScreen will warn about an unsigned installer.","timestamp":null}
+| File | Architecture | Type | Size | SHA-256 |
+| --- | --- | --- | ---: | --- |
+| `OpenMind.Studio_x64.exe` | x64 | NSIS EXE installer | 196.75 MiB | `9e3db0a3785f61a006f6d764662b5c2af5a66b34c0198a5634c9dea19a0cc24c` |
+| `OpenMind.Studio_x64_en-US.msi` | x64 | MSI installer | 212.87 MiB | `ab8f03054e3aee096208378b36c88ee83c2111ec71cf16842f7e73cb9d728cc1` |
+| `OpenMind.Studio_x86.exe` | x86 | NSIS EXE installer | 196.36 MiB | `d13c4d48bf0486c8e99856564b51d0fc6a4ee7f8fbf31dcf5b004038ee1f5233` |
+| `OpenMind.Studio_x86_en-US.msi` | x86 | MSI installer | 212.25 MiB | `2b2d1e5e6eb85cc15e4df798be81ed8777c8cb2573cbb49292affaded4288031` |
+
+## Direct downloads
+
+- [x64 EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64.exe)
+- [x64 MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64_en-US.msi)
+- [x86 EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86.exe)
+- [x86 MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86_en-US.msi)
+
+Full release page: https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.0
+
+## Major production areas
+
+- Monaco-based editor and workspace
+- Explorer, tabs, breadcrumbs, themes, profiles and icon themes
+- Integrated terminal
+- Run Code workflow
+- Runtime Manager
+- Portable Node.js, npm and pnpm
+- Portable Python and pip
+- Portable Git and Source Control integration
+- PHP 8.x runtime support
+- Composer
+- MariaDB and phpMyAdmin local stack
+- Go/toolchain integration where configured
+- Language Server Protocol foundation
+- Formatter/linter/tool discovery
+- Workspace search and project detection
+- File previews for images, PDF, DOCX, XLSX, CSV, Markdown, HTML and related formats
+- Local VSIX extension foundation
+- Optional Claude, OpenAI/OpenAI-compatible, Gemini and local AI-provider architecture
+- Proxy-aware download broker
+- Localhost-only package/download gateway
+- Resume, cancellation and progress-aware downloads
+- SHA-256/package integrity verification
+- Application updater infrastructure with signature verification
+- NSIS EXE and MSI packaging
+- x64 and x86 release targets
+
+## Restricted-PC design
+
+OpenMind Studio is designed to prefer application-local runtimes and tools instead of depending on global installations. Normal app-managed workflows avoid changing the User or Machine `PATH` and are intended to remain practical on university and office PCs with limited permissions.
+
+The application does not intentionally bypass administrator restrictions, authentication, firewall rules, proxies, or institutional security policies.
+
+## Release policy
+
+Compiled `.exe` and `.msi` files are published as GitHub Release assets and are not stored directly in the `main` source branch.
+
+Private signing keys, passwords, certificates, API secrets and other credentials must never be committed to the repository.
