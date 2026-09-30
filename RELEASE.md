@@ -1,53 +1,78 @@
 # OpenMind Studio v1.0.0
 
-OpenMind Studio is a portable Windows development environment designed especially for university labs, office computers, shared systems, and other restricted PCs where users may not have administrator access.
+OpenMind Studio is a portable Windows development environment designed especially for university labs, office computers, shared systems, and other restricted PCs where users may not have administrator access or system-wide development tools.
 
-## Downloads
+## Download
 
-### EXE Installer
+### x64
 
-- `OpenMind.Studio_x64.exe`
-- `OpenMind.Studio_x86.exe`
+- [EXE installer](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64.exe)
+- [MSI installer](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64_en-US.msi)
 
-Recommended for most users.
+### x86
 
-### MSI Installer
+- [EXE installer](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86.exe)
+- [MSI installer](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86_en-US.msi)
 
-- `OpenMind.Studio_x64_en-US.msi`
-- `OpenMind.Studio_x86_en-US.msi`
+The EXE installer is recommended for most users. MSI is available for managed deployment or environments that prefer Windows Installer packages.
 
-Suitable for managed environments, university systems, office deployment, and MSI-based installation workflows.
+## What v1.0.0 includes
 
-## What OpenMind Studio Provides
+- Monaco-based code editor
+- Explorer, editor tabs, breadcrumbs and workspace restore
+- Integrated terminal
+- Run Code workflow
+- Portable Runtime Manager
+- Node.js, npm and pnpm
+- Python and pip
+- Git and Source Control
+- PHP 8.x
+- Composer
+- MariaDB and phpMyAdmin
+- Go/toolchain support where configured
+- Language Server Protocol foundation
+- Format Document and formatter/tool discovery
+- Workspace search and project detection
+- Image, PDF, DOCX, XLSX, CSV, Markdown and HTML previews
+- Local VSIX extension foundation
+- Optional Claude, OpenAI/OpenAI-compatible, Gemini and local AI-provider architecture
+- Proxy-aware runtime/tool downloads
+- Shared/resumable download broker
+- Localhost-only package gateway
+- SHA-256/package integrity verification
+- Signed updater infrastructure
+- x64 and x86 Windows packaging
+- EXE and MSI release formats
 
-OpenMind Studio allows developers and students to work with a modern code editor and application-managed development tools without depending on normal system-wide installations.
+## Designed for university and office PCs
 
-It is especially useful for:
+OpenMind Studio is built around application-local runtimes and development tools. This makes it useful on university computers, office PCs, computer labs and shared Windows systems where normal global development-tool installation may not be practical.
 
-- University computers
-- Computer labs
-- Office PCs
-- Shared Windows machines
-- Systems with limited user permissions
-- PCs where administrator access is unavailable
-- Portable development environments
+Normal app-managed workflows avoid changing the User or Machine `PATH` and do not require every supported runtime to be installed system-wide.
 
-The application is designed to keep supported runtimes, tools, and development workflows inside the OpenMind Studio environment where possible.
+OpenMind Studio does not intentionally bypass operating-system restrictions, administrator controls, authentication, firewall rules, proxy policies or institutional security controls.
 
-## Installation
+## Runtime and language tooling
 
-For normal use, download and run the EXE installer.
+Supported runtime/tool areas include Node.js, Python, PHP, Git, Composer, MariaDB, phpMyAdmin and additional toolchains such as Go where configured.
 
-Use the MSI package when MSI installation or managed deployment is preferred.
+The LSP/toolchain system provides the foundation for diagnostics, symbols, navigation, references and other language-aware editor features for supported/configured languages including JavaScript, TypeScript, JSON, HTML, CSS, Python and PHP.
 
-Administrator access may still depend on the security and software policies configured on the specific computer or organization.
+## Networking and updater
+
+Application-managed downloads use the OpenMind Studio download broker and local gateway where supported. The gateway binds to `127.0.0.1`, uses per-run authentication, preserves HTTPS certificate validation and verifies package hashes where available.
+
+Updater artifacts are cryptographically signed and the application verifies updates using its configured updater public key before accepting them.
 
 ## Platform
 
-Windows 10 / 11  
-x64 and x86 builds  
-Stable Release: v1.0.0
+- Windows 10 / 11
+- x64 and x86 builds
+- Stable release: `v1.0.0`
+- License: Apache License 2.0
 
-## Release Page
+## Release page
 
 https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.0
+
+For file sizes and SHA-256 hashes, see [`RELEASE-REPORT.md`](RELEASE-REPORT.md).
