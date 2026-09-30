@@ -1,0 +1,12 @@
+# Release installers belong in GitHub Releases, not the source branch
+/OpenMind-Studio-*.msi
+/OpenMind-Studio-Setup-*.exe
+
+# Local Tauri updater/signing material
+*.key
+*.key.pub
+
+# Common generated output
+/target/
+/dist/
+/node_modules/
