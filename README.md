@@ -4,6 +4,17 @@
 
 It is a native desktop application built with **Rust, Tauri 2, React, TypeScript, Vite, and Monaco Editor**. The goal is to provide a practical local development workspace with editing, terminals, portable runtimes, language tooling, source control, previews, local servers, database tooling, extensions, and optional AI integrations without depending on a fully configured system-wide development machine.
 
+## Download v1.0.0
+
+**Latest stable release:** [OpenMind Studio v1.0.0](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.0)
+
+| Build | EXE | MSI |
+| --- | --- | --- |
+| Windows x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64_en-US.msi) |
+| Windows x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86_en-US.msi) |
+
+For most users, the **EXE installer is recommended**. MSI is available for managed, university, office, and Windows Installer-based deployment environments.
+
 ---
 
 ## Current release
