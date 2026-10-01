@@ -8,10 +8,10 @@ It is a native desktop application built with **Rust, Tauri 2, React, TypeScript
 
 **Latest stable release:** [OpenMind Studio v1.0.0](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.0)
 
-| Build | EXE |
+| Build | EXE | MSI |
 | --- | --- | --- |
-| Windows x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64.exe) | 
-| Windows x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86.exe) | 
+| Windows x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64_en-US.msi) |
+| Windows x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86_en-US.msi) |
 
 For most users, the **EXE installer is recommended**. MSI is available for managed, university, office, and Windows Installer-based deployment environments.
 
