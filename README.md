@@ -8,7 +8,7 @@ It is a native desktop application built with **Rust, Tauri 2, React, TypeScript
 
 **Latest stable release:** [OpenMind Studio v1.0.0](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.0)
 
-| Build | EXE | MSI |
+| Build | EXE |
 | --- | --- | --- |
 | Windows x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64.exe) | 
 | Windows x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86.exe) | 
