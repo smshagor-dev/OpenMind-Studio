@@ -12,12 +12,14 @@ It is a native desktop application built with **Rust, Tauri 2, React, TypeScript
 
 | Architecture | EXE installer | MSI installer | Portable ZIP |
 | --- | --- | --- | --- |
-| x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x64.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x64.zip) |
-| x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x86.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x86.zip) |
+| x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x64.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x64.zip) |
+| x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x86.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x86.zip) |
 
 > **Windows installer note**
 >
 > The **EXE installer is recommended** for most users and restricted university/office PCs. MSI packages may require Administrator permission depending on Windows or organization policy. The portable ZIP is available when installation is not practical.
+>
+> **Signing status:** the v1.0.1 Windows build is **test-signed** with the self-signed `CN=OpenMind` certificate and carries a DigiCert timestamp. The EXE/MSI installers and shipped application executables are signed; the portable ZIPs contain signed `OpenMindStudio.exe` payloads. PCs that do not trust the OpenMind certificate may still show SmartScreen or trust warnings.
 
 ### Linux
 
@@ -38,6 +40,7 @@ See [`SHA256SUMS.txt`](SHA256SUMS.txt) for release hashes and [`RELEASE-REPORT.m
 **Channel:** Stable  
 **Platforms:** Windows 10/11 and Linux  
 **Architectures:** x64 and x86 release assets  
+**Windows signing:** Test-signed (`CN=OpenMind`) with DigiCert timestamp  
 **License:** Apache License 2.0 (`Apache-2.0`)
 
 Release binaries are published through **GitHub Releases**, not committed to the source branch.
@@ -434,7 +437,7 @@ OpenMind Studio v1.0.1 includes application-update infrastructure.
 
 Official update metadata is expected from GitHub Releases through the configured updater endpoint.
 
-Updater artifacts are cryptographically signed, and the application verifies update signatures against the embedded updater public key before accepting an update.
+Updater artifacts are cryptographically signed, and the application verifies update signatures against the embedded updater public key before accepting an update. The v1.0.1 Windows release also uses Authenticode test-signing with `CN=OpenMind`; this is separate from the Tauri updater `.sig` signatures.
 
 The private signing key must never be committed to the repository.
 
