@@ -3,6 +3,8 @@
 - Version: 1.0.1
 - Architecture: x64, x86
 - Build type: **test-signed**
+- Windows signer: **CN=OpenMind**
+- Timestamp: **DigiCert** (`http://timestamp.digicert.com`)
 - Built: 2026-10-07T11:59:52.122Z
 
 | File | Kind | Size | SHA256 |
@@ -14,6 +16,8 @@
 | OpenMind-Studio-Portable-1.0.1-x64.zip | portable | 252.9 MB | `154f4b1baaa262144d4c05e2e484dfb78614b10040545011fec4c485e434ade5` |
 | OpenMind-Studio-Portable-1.0.1-x86.zip | portable | 252.2 MB | `62798e0c16ab149bf6e8e859c81bd18839ee8e36b16703f45859b4e6de5201aa` |
 
-These files are signed with a **test certificate**: other computers do not trust it.
+The Windows v1.0.1 build is **test-signed** with the self-signed `CN=OpenMind` certificate and a DigiCert timestamp. The EXE/MSI installers are Authenticode-signed, and the portable ZIP packages contain signed application executables. Tauri updater `.sig` files were regenerated from the signed installers and verified successfully.
+
+Because the certificate is self-signed, computers that do not explicitly trust `CN=OpenMind` can still show SmartScreen or publisher-trust warnings. This is a signed test release, not publicly trusted production code signing.
 
 Signing: {"mode":"test-signed","message":"Signing with a TEST certificate from the Windows certificate store: the build is marked TEST-SIGNED (not trusted by other computers).","timestamp":"http://timestamp.digicert.com"}
