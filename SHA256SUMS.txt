@@ -1,4 +1,12 @@
-65612e321336e030dc099abf2d434d5f86351600ca05f20b2ba57eb7987d99bb  OpenMind-Studio-Setup-0.1.0-x64.exe
-67aa39868a5dc7282ee3ba8b41c885df564fea4707cb4707fc267411b52dfcbf  OpenMind-Studio-0.1.0-x64.msi
-3770bbda42838aafc45c538d0971105fb0ffeb4abc39e6e2b168328438414f8b  OpenMind-Studio-Setup-0.1.0-x86.exe
-e523273db64421d40bf69da4368415efc71e8a05251d585ce7d42cbd64e78259  OpenMind-Studio-0.1.0-x86.msi
+7b1f68cc430d89a9a87c73c3c214a3991c8b1c7b9af4707f09b5835a53912a75  OpenMind-Studio-Setup-1.0.1-x64.exe
+d334b42ed3710655ffd92d647431b681839c83ff76b6b3a9bbc101b4fca8bbf7  OpenMind-Studio-1.0.1-x64.msi
+099c3109337874affd53436c8ae1b3faae8eaf95f867956882e6a06ffb52121e  OpenMind-Studio-Setup-1.0.1-x86.exe
+fbfedadaa23dc27d0357e71f53c72f5d29444814b66a6ccff8815a31687694f9  OpenMind-Studio-1.0.1-x86.msi
+6b2eb72e69d0eb8e1597f1c90a119ea07edc57be029499289d62a717069bf2d2  OpenMind-Studio-Portable-1.0.1-x64.zip
+8f3f8952b7e78caa788791650e78dacdeade2edb882e429923dbed8f5d98cbf3  OpenMind-Studio-Portable-1.0.1-x86.zip
+43af2d656ca12112b308e307bb9094cf2ad53bc88dfdd6c490f98ea62bdb096b  OpenMind-Studio-1.0.1-x64.deb
+ee00e44e24a9ea7e6074acc5a46ff2c55b619c20c9eff74e7b72cd8b8f910a5f  OpenMind-Studio-1.0.1-x64.AppImage
+7fba0b0a8281804da420c2f76d686b51762aee2bcec021515ce3345387a37255  OpenMind-Studio-Portable-1.0.1-linux-x64.zip
+4f1bb299ea45f08eb8cb83f1ee79ffe0d6113c623dee891dcb7dd1cd91cd17bd  OpenMind-Studio-1.0.1-x86.deb
+eaefae7901833e19b403d09e82380638da876d7b15a13ec85bdcd3f7b14dfdb4  OpenMind-Studio-1.0.1-x86.AppImage
+af1791f59e5af2ba19fdaa9ada1830031010e41e5544193555a3d73541ba1d14  OpenMind-Studio-Portable-1.0.1-linux-x86.zip
