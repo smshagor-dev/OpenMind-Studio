@@ -14,8 +14,8 @@ OpenMind Studio v1.0.1 is a major stability, tooling, portability and architectu
 
 | Architecture | EXE | MSI | Portable ZIP |
 | --- | --- | --- | --- |
-| x64 | [OpenMind-Studio-Setup-x64.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x64.exe) | [OpenMind-Studio-x64.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x64.msi) | [OpenMind-Studio-Portable-x64.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x64.zip) |
-| x86 | [OpenMind-Studio-Setup-x86.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x86.exe) | [OpenMind-Studio-x86.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x86.msi) | [OpenMind-Studio-Portable-x86.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x86.zip) |
+| x64 | [OpenMind-Studio-Setup-1.0.1-x64.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x64.exe) | [OpenMind-Studio-1.0.1-x64.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x64.msi) | [OpenMind-Studio-Portable-1.0.1-x64.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x64.zip) |
+| x86 | [OpenMind-Studio-Setup-1.0.1-x86.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x86.exe) | [OpenMind-Studio-1.0.1-x86.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x86.msi) | [OpenMind-Studio-Portable-1.0.1-x86.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x86.zip) |
 
 **Recommended:** use the EXE installer for most Windows systems and restricted university/office PCs. MSI may require Administrator permission. Use the portable ZIP when a normal installation is not practical.
 
@@ -79,7 +79,9 @@ For Linux, AppImage is the recommended portable package. DEB integrates with Deb
 
 Windows is the primary full portable/offline-tooling edition in v1.0.1. The Windows packages include the additional offline language-server/formatter tooling and portable runtime assets that make the installers and portable ZIP substantially larger than Linux DEB/ZIP packages.
 
-Windows binaries are **not Authenticode code-signed** in this release, so SmartScreen may warn on first launch.
+Windows v1.0.1 is **Authenticode test-signed** with the self-signed `CN=OpenMind` certificate and a DigiCert timestamp. The EXE/MSI installers are signed, and the portable ZIP packages contain a signed `OpenMindStudio.exe`. The Tauri updater `.sig` files remain valid after signing.
+
+Because `CN=OpenMind` is self-signed, this is not a publicly trusted production code-signing certificate. PCs that do not trust the certificate may still show SmartScreen or trust warnings. Public warning-free distribution requires a certificate issued by a trusted code-signing certificate authority.
 
 ### Linux
 
