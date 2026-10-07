@@ -12,8 +12,8 @@ It is a native desktop application built with **Rust, Tauri 2, React, TypeScript
 
 | Architecture | EXE installer | MSI installer | Portable ZIP |
 | --- | --- | --- | --- |
-| x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x64.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x64.zip) |
-| x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x86.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x86.zip) |
+| x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x64.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x64.zip) |
+| x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x86.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x86.zip) |
 
 > **Windows installer note**
 >
