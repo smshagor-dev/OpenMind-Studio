@@ -1,45 +1,57 @@
 # OpenMind Studio
 
-**OpenMind Studio** is a portable Windows desktop IDE built for students, developers, university labs, office PCs, shared systems, and other restricted environments where administrator access or global development-tool installation may not be available.
+**OpenMind Studio** is a portable desktop IDE for **Windows and Linux**, built for students, developers, university labs, office PCs, shared systems, and other restricted environments where administrator access or global development-tool installation may not be available. Windows remains the primary full portable/offline-tooling edition, while v1.0.1 adds Linux packages for x64 and x86.
 
 It is a native desktop application built with **Rust, Tauri 2, React, TypeScript, Vite, and Monaco Editor**. The goal is to provide a practical local development workspace with editing, terminals, portable runtimes, language tooling, source control, previews, local servers, database tooling, extensions, and optional AI integrations without depending on a fully configured system-wide development machine.
 
-## Download v1.0.0
+## Download v1.0.1
 
-**Latest stable release:** [OpenMind Studio v1.0.0](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.0)
+**Latest stable release:** [OpenMind Studio v1.0.1](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.1)
 
-| Build | EXE | MSI |
-| --- | --- | --- |
-| Windows x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x64_en-US.msi) |
-| Windows x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.0/OpenMind.Studio_x86_en-US.msi) |
+### Windows
 
-> **Special Note — MSI Installer**
+| Architecture | EXE installer | MSI installer | Portable ZIP |
+| --- | --- | --- | --- |
+| x64 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x64.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x64.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x64.zip) |
+| x86 | [Download EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x86.exe) | [Download MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x86.msi) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x86.zip) |
+
+> **Windows installer note**
 >
-> The `.msi` installer may require **Administrator permission** on Windows, depending on the system or organization policy. If you are using a **university, office, lab, or other restricted PC without administrator access**, use the `.exe` installer instead.
->
-> **Recommended for restricted PCs:** `.exe`  
-> **MSI:** Administrator permission may be required.
+> The **EXE installer is recommended** for most users and restricted university/office PCs. MSI packages may require Administrator permission depending on Windows or organization policy. The portable ZIP is available when installation is not practical.
 
-For most users, the **EXE installer is recommended**. MSI is available for managed, university, office, and Windows Installer-based deployment environments.
+### Linux
+
+| Architecture | DEB | AppImage | Portable ZIP |
+| --- | --- | --- | --- |
+| x64 | [Download DEB](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x64.deb) | [Download AppImage](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x64.AppImage) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-linux-x64.zip) |
+| x86 | [Download DEB](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x86.deb) | [Download AppImage](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x86.AppImage) | [Download ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-linux-x86.zip) |
+
+For Linux, the **AppImage is the recommended portable package**. The DEB package integrates with Debian/Ubuntu-style systems and uses system GTK/WebKit dependencies. The portable ZIP is lightweight and also depends on compatible system libraries.
+
+See [`SHA256SUMS.txt`](SHA256SUMS.txt) for release hashes and [`RELEASE-REPORT.md`](RELEASE-REPORT.md) for artifact details.
 
 ---
 
 ## Current release
 
-**Version:** `1.0.0`  
+**Version:** `1.0.1`  
 **Channel:** Stable  
-**Platform:** Windows 10 / 11  
-**Architectures:** x64 and x86 builds  
+**Platforms:** Windows 10/11 and Linux  
+**Architectures:** x64 and x86 release assets  
 **License:** Apache License 2.0 (`Apache-2.0`)
 
-Installer binaries are published through **GitHub Releases**, not committed to the source branch.
+Release binaries are published through **GitHub Releases**, not committed to the source branch.
 
 Available release formats:
 
-- NSIS setup `.exe`
+- Windows NSIS setup `.exe`
 - Windows Installer `.msi`
+- Windows portable `.zip`
+- Linux `.deb`
+- Linux AppImage
+- Linux portable `.zip`
 
-The EXE installer is recommended for most users. MSI is available for environments that prefer MSI-based deployment.
+Windows provides the fullest portable/offline tooling experience in v1.0.1. Linux packages provide the editor and core desktop experience, but some offline bundles and Runtime Manager download workflows remain Windows-only.
 
 ---
 
@@ -126,6 +138,8 @@ Supported tool areas include Python, Node.js, npm, pnpm, PHP, Composer, Git, Go 
 ## Runtime Manager
 
 OpenMind Studio includes a portable Runtime Manager for downloading, installing, detecting, repairing, and using development runtimes inside the application environment.
+
+> **Platform note:** the full Runtime Manager download workflow and bundled offline runtime/tool packages in v1.0.1 are primarily available on Windows. Linux builds do not currently include the Windows-only offline Python, LSP/formatter bundles, or the same Runtime Manager download set.
 
 Current runtime/tool areas include:
 
@@ -365,7 +379,7 @@ The provider architecture includes paths for:
 
 Security/privacy behavior includes:
 
-- encrypted API-key storage
+- Windows DPAPI-backed API-key storage; Linux v1.0.1 does not yet provide equivalent OS-backed secret encryption
 - no hidden AI request at application launch
 - no AI panel unless a provider is configured/enabled
 - confirmation-aware online content sending
@@ -416,7 +430,7 @@ Institutional proxy/firewall policies can still prevent external repositories fr
 
 ## Updater
 
-OpenMind Studio v1.0.0 includes application-update infrastructure.
+OpenMind Studio v1.0.1 includes application-update infrastructure.
 
 Official update metadata is expected from GitHub Releases through the configured updater endpoint.
 
@@ -450,17 +464,31 @@ Third-party package managers, Git remotes, AI providers, and external services h
 
 ## Installation
 
-Download installers from the project's **GitHub Releases** page.
+Download the current packages from the project's [GitHub Releases](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.1) page.
 
-### EXE
+### Windows EXE
 
-Use the NSIS `.exe` installer for normal installation. This is the recommended option for most users.
+Use the NSIS `.exe` installer for normal installation. This is the recommended option for most Windows users and for many restricted PCs.
 
-### MSI
+### Windows MSI
 
-Use the `.msi` package when Windows Installer or managed deployment is preferred.
+Use the `.msi` package when Windows Installer or managed deployment is preferred. Administrator approval may be required depending on Windows, domain, university, or office policy.
 
-Whether administrator approval is required can still depend on Windows, domain, university, or office policy.
+### Windows portable ZIP
+
+Extract the archive and run OpenMind Studio without a normal installer. This is useful where installation is restricted.
+
+### Linux DEB
+
+Use the `.deb` package on compatible Debian/Ubuntu-based systems. Installation normally uses the system package manager and may require `sudo`.
+
+### Linux AppImage
+
+The AppImage is the recommended portable Linux package. Make it executable and launch it directly.
+
+### Linux portable ZIP
+
+Extract and launch the included binary. This package is smaller because compatible GTK/WebKit and other system libraries are expected to be present on the host.
 
 ---
 
@@ -468,15 +496,16 @@ Whether administrator approval is required can still depend on Windows, domain, 
 
 Recommended baseline:
 
-- Windows 10 or Windows 11
-- x64 Windows for the primary build
-- x86 build where specifically required
+- Windows 10 / 11 or a compatible modern Linux distribution
+- x64 recommended; x86 release assets are also published
 - 4 GB RAM minimum
 - 8 GB RAM or more recommended
-- enough storage for the selected runtimes and workloads
-- WebView2 runtime available on the system
+- enough storage for selected runtimes and workloads
+- Windows: WebView2 runtime available on the system
+- Linux DEB/ZIP: compatible GTK 3 and WebKitGTK 4.1 libraries
+- internet access for runtime/tool downloads when those workflows are used
 
-Runtime/tool workloads require additional disk space.
+Runtime/tool workloads require additional disk space. Windows packages are larger because v1.0.1 includes additional offline/runtime tooling that is not bundled into the Linux DEB/ZIP builds.
 
 ---
 
@@ -541,34 +570,30 @@ docs/         architecture, release, networking, runtime, and validation documen
 
 ---
 
-## v1.0.0 major areas
+## v1.0.1 highlights
 
-OpenMind Studio v1.0.0 brings together the current production foundation, including:
+OpenMind Studio v1.0.1 expands the original release with major stability, portability, language-tooling and synchronization work:
 
-- Monaco editor and workspace system
-- explorer, tabs, breadcrumbs, menus, themes, profiles, and icon themes
-- integrated terminal
-- Runtime Manager
-- portable Node.js, Python, PHP, Git, Composer and database tooling
-- npm / pnpm / pip workflows
-- PHP/MariaDB/phpMyAdmin local stack
-- Run Code
-- source control
-- LSP foundation and language tooling
-- formatting/tool discovery
-- preview system
-- indexed/workspace search foundation
-- extension system
-- optional AI provider architecture
-- project/language detection
-- toolchain/workload system
-- local download broker
-- proxy-aware download resilience
-- localhost package gateway
-- checksum/integrity verification
-- release signing/updater infrastructure
-- NSIS EXE and MSI packaging
-- x64 and x86 release targets
+- canonical Rust-backed live state synchronization across windows
+- external filesystem watching for runtimes, tools, language servers, extensions, dependencies and Git state
+- C, C++, Java and Rust Run Code compile/run pipelines
+- portable Python Tkinter/Tcl-Tk add-on
+- Fortran and Pascal toolchain integration
+- Assembly support with NASM x86/x64, GAS, asm-lsp and GDB terminal debugging
+- bundled offline LSP and formatter tooling on Windows
+- unified Language Tools installation and status handling
+- unified terminal download broker for pip, npm, pnpm, Yarn, Git, Go, Cargo, Composer and rustup workflows
+- unified MySQL control for MariaDB + phpMyAdmin
+- server tray behavior while PHP/MySQL services are active
+- improved terminal runtime/PATH refresh without restarting the app
+- stronger multi-window/workspace isolation and shared canonical state
+- hardened restricted-network/proxy handling, resumable downloads and checksum verification
+- Linux x64/x86 release packages: DEB, AppImage and portable ZIP
+- Windows x64/x86 packages: EXE, MSI and portable ZIP
+
+Notable fixes include Explorer refresh issues, Save As language-mode detection, extension language recoloring, Node/npm environment resolution, duplicate watcher events, stale workspace state, revision-gap recovery, temporary install-state errors, proxy authentication reporting, credential exposure in command arguments, cleanup failures and shutdown/process leaks.
+
+For the full v1.0.0 → v1.0.1 changelog and platform notes, see [`RELEASE.md`](RELEASE.md).
 
 ---
 
@@ -576,7 +601,7 @@ OpenMind Studio v1.0.0 brings together the current production foundation, includ
 
 The `main` branch contains source code, documentation, configuration, and development assets.
 
-Compiled Windows installers such as `.exe` and `.msi` files are published as GitHub Release assets rather than committed directly to `main`.
+Compiled release packages such as Windows `.exe` / `.msi` / portable ZIP and Linux `.deb` / AppImage / portable ZIP files are published as GitHub Release assets rather than committed directly to `main`.
 
 Signing private keys, passwords, certificates, API secrets, and other private credentials must never be committed.
 
