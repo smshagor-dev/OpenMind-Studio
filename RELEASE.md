@@ -14,8 +14,8 @@ OpenMind Studio v1.0.1 is a major stability, tooling, portability and architectu
 
 | Architecture | EXE | MSI | Portable ZIP |
 | --- | --- | --- | --- |
-| x64 | [OpenMind-Studio-Setup-1.0.1-x64.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x64.exe) | [OpenMind-Studio-1.0.1-x64.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x64.msi) | [OpenMind-Studio-Portable-1.0.1-x64.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x64.zip) |
-| x86 | [OpenMind-Studio-Setup-1.0.1-x86.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-1.0.1-x86.exe) | [OpenMind-Studio-1.0.1-x86.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-1.0.1-x86.msi) | [OpenMind-Studio-Portable-1.0.1-x86.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-1.0.1-x86.zip) |
+| x64 | [OpenMind-Studio-Setup-x64.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x64.exe) | [OpenMind-Studio-x64.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x64.msi) | [OpenMind-Studio-Portable-x64.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x64.zip) |
+| x86 | [OpenMind-Studio-Setup-x86.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Setup-x86.exe) | [OpenMind-Studio-x86.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-x86.msi) | [OpenMind-Studio-Portable-x86.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.1/OpenMind-Studio-Portable-x86.zip) |
 
 **Recommended:** use the EXE installer for most Windows systems and restricted university/office PCs. MSI may require Administrator permission. Use the portable ZIP when a normal installation is not practical.
 
