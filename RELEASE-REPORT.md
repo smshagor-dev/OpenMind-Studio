@@ -1,33 +1,138 @@
-# OpenMind Studio 1.0.1 — release artifacts
+# OpenMind Studio 1.0.2 — release artifacts
 
-- Version: **1.0.1**
+- Version: **1.0.2**
 - Channel: **Stable**
 - Platforms: **Windows, Linux**
-- Architectures: **x64, x86**
-- Windows build type: **test-signed**
-- Windows signer: **CN=OpenMind**
-- Timestamp: **DigiCert** (`http://timestamp.digicert.com`)
-- Release: [v1.0.1](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.1)
+- Windows architectures: **x64, x86**
+- Linux architecture: **x86_64 / amd64**
+- License: **Apache-2.0**
+- Release: [v1.0.2](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.2)
 
-## Published assets
+## Expected published assets
 
-| File | Platform | Kind | Size | SHA-256 |
-| --- | --- | --- | ---: | --- |
-| OpenMind-Studio-Setup-x64.exe | Windows x64 | EXE installer | 237.1 MiB | `f52764928a25d44276176e5bf0f90b3fe4d934892cc0154e6f245c4cd5592c03` |
-| OpenMind-Studio-x64.msi | Windows x64 | MSI installer | 253.7 MiB | `e7666172464921e399e0d7b32a82769b03891af4731a5a94b46ed9db7b00a16c` |
-| OpenMind-Studio-Portable-x64.zip | Windows x64 | Portable ZIP | 252.9 MiB | `154f4b1baaa262144d4c05e2e484dfb78614b10040545011fec4c485e434ade5` |
-| OpenMind-Studio-Setup-x86.exe | Windows x86 | EXE installer | 236.7 MiB | `61262c942ec95b00236972ab9890891e22cb52ec665834a9432dfec5ee0d1bb5` |
-| OpenMind-Studio-x86.msi | Windows x86 | MSI installer | 253.1 MiB | `c409ba0c319a07e26b4a99b940fca3940abc9562dbda55f47db5e3e310be4aac` |
-| OpenMind-Studio-Portable-x86.zip | Windows x86 | Portable ZIP | 252.2 MiB | `62798e0c16ab149bf6e8e859c81bd18839ee8e36b16703f45859b4e6de5201aa` |
-| OpenMind-Studio-x64.deb | Linux x64 | DEB | 15.7 MiB | `43af2d656ca12112b308e307bb9094cf2ad53bc88dfdd6c490f98ea62bdb096b` |
-| OpenMind-Studio-x64.AppImage | Linux x64 | AppImage | 91.1 MiB | `ee00e44e24a9ea7e6074acc5a46ff2c55b619c20c9eff74e7b72cd8b8f910a5f` |
-| OpenMind-Studio-Portable-linux-x64.zip | Linux x64 | Portable ZIP | 15.4 MiB | `7fba0b0a8281804da420c2f76d686b51762aee2bcec021515ce3345387a37255` |
-| OpenMind-Studio-x86.deb | Linux x86 | DEB | 15.7 MiB | `4f1bb299ea45f08eb8cb83f1ee79ffe0d6113c623dee891dcb7dd1cd91cd17bd` |
-| OpenMind-Studio-x86.AppImage | Linux x86 | AppImage | 108.2 MiB | `eaefae7901833e19b403d09e82380638da876d7b15a13ec85bdcd3f7b14dfdb4` |
-| OpenMind-Studio-Portable-linux-x86.zip | Linux x86 | Portable ZIP | 15.4 MiB | `af1791f59e5af2ba19fdaa9ada1830031010e41e5544193555a3d73541ba1d14` |
+### Windows
+
+| File | Platform | Kind | Verification |
+| --- | --- | --- | --- |
+| `OpenMind-Studio-Setup-1.0.2-x64.exe` | Windows x64 | EXE installer | Authenticode + release signature + SHA-256 |
+| `OpenMind-Studio-1.0.2-x64.msi` | Windows x64 | MSI installer | Authenticode + release signature + SHA-256 |
+| `OpenMind-Studio-1.0.2-x64-portable.zip` | Windows x64 | Portable ZIP | detached signature + SHA-256 |
+| `OpenMind-Studio-Setup-1.0.2-x86.exe` | Windows x86 | EXE installer | Authenticode + release signature + SHA-256 |
+| `OpenMind-Studio-1.0.2-x86.msi` | Windows x86 | MSI installer | Authenticode + release signature + SHA-256 |
+| `OpenMind-Studio-1.0.2-x86-portable.zip` | Windows x86 | Portable ZIP | detached signature + SHA-256 |
+
+### Linux
+
+| File | Platform | Kind | Verification |
+| --- | --- | --- | --- |
+| `OpenMind-Studio-1.0.2-amd64.deb` | Linux x86_64 | DEB | detached signature + SHA-256 |
+| `OpenMind-Studio-1.0.2-x86_64.AppImage` | Linux x86_64 | AppImage | detached signature + SHA-256 |
+| `OpenMind-Studio-1.0.2-linux-x86_64-portable.tar.gz` | Linux x86_64 | Portable archive | detached signature + SHA-256 |
+
+### Verification files
+
+The v1.0.2 release also publishes the supported detached `.sig` files plus:
+
+- `SHA256SUMS.txt`
+- `SHA256SUMS.txt.sig`
+
+Exact artifact sizes and SHA-256 values are generated from the **final signed release files** during publication and must match the GitHub Release assets.
+
+## Validation status
+
+The v1.0.2 codebase passed the required pre-release validation:
+
+| Check | Result |
+| --- | --- |
+| Rust formatting | PASS |
+| Rust clippy, warnings denied | PASS |
+| Rust workspace tests | **1,454 passed, 0 failed, 21 ignored** |
+| TypeScript typecheck | PASS |
+| ESLint | PASS |
+| Frontend tests | **2,113 passed** across 187 files |
+| Production frontend build | PASS |
+| Multi-PC portable simulation | PASS |
+
+## Multi-computer validation
+
+The v1.0.2 simulation verified:
+
+- different computers receive different machine profiles
+- cloned lab PCs with the same MachineGuid can still be separated by valid hardware identity
+- reconnecting the same computer restores the same profile
+- drive-letter and portable-folder relocation do not require runtime reinstallation
+- Runtime Manager installations remain shared across computers
+- Language Tools remain shared across computers
+- Node, Python and PHP execute from the shared portable installation on another profile
+- MariaDB binaries remain shared while database data is isolated
+- WebView2, AI history, search indexes, logs and temporary state are isolated
+- switching data scope does not reinstall runtimes
+- legacy database migration preserves the original source database
+- raw machine identifiers are not stored in profile names or release-facing state
+
+## Data architecture
+
+### Shared across computers
+
+- OpenMind Studio application
+- Runtime Manager downloads and installed runtimes
+- Node.js
+- Python
+- Go
+- Rust
+- PHP
+- MariaDB binaries
+- Git
+- Fortran
+- Pascal
+- Assembly tools
+- language servers
+- formatters
+- linters
+- debuggers
+- Language Tools packages
+
+### Isolated per computer
+
+- application SQLite database
+- WebView2 data
+- AI conversation history
+- search index
+- logs
+- temporary/process state
+- broker and runtime mutable state
+- MariaDB databases and machine-specific configuration
+- phpMyAdmin machine-specific configuration
+
+## Storage planning
+
+Measured mutable profile usage:
+
+- approximately **15–25 MB per computer** for normal application state
+- approximately **160 MB per computer** after MariaDB/MySQL has been initialized
+
+For 1,000 computers, deployments should plan for roughly **20 GB** of normal profile data, potentially up to around **160 GB** if MariaDB is initialized on every profile.
+
+Old machine profiles are not automatically removed.
 
 ## Signing notes
 
-The Windows v1.0.1 build is **Authenticode test-signed** with the self-signed `CN=OpenMind` certificate and a DigiCert timestamp. The EXE/MSI installers are signed, and the portable ZIP packages contain signed `OpenMindStudio.exe` payloads. Tauri updater `.sig` files remain valid after signing.
+Windows EXE/MSI artifacts are expected to be Authenticode-signed and timestamped according to the project's release-signing workflow.
 
-Because the certificate is self-signed, computers that do not explicitly trust `CN=OpenMind` may still show SmartScreen or publisher-trust warnings. This is a signed test release, not publicly trusted production code signing.
+Portable and Linux artifacts use the project's supported detached signature workflow.
+
+Updater/release signatures are separate from Windows Authenticode signatures.
+
+Private signing keys and passwords must never be committed or published.
+
+## Publication rule
+
+Do not consider v1.0.2 fully published until:
+
+1. every expected artifact exists;
+2. every required signature has been generated and verified;
+3. `SHA256SUMS.txt` is generated from the final signed artifacts;
+4. release smoke tests pass for the environments that can be physically tested;
+5. the GitHub v1.0.2 release contains the final artifact set without duplicate names.
+
+Historical v1.0.1 release assets remain available separately.
