@@ -13,7 +13,7 @@
 | Architecture | Setup EXE | MSI | Portable ZIP |
 | --- | --- | --- | --- |
 | x64 | [OpenMind-Studio_1.0.3_windows_x64_setup.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x64_setup.exe) | [OpenMind-Studio_1.0.3_windows_x64.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x64.msi) | [OpenMind-Studio_1.0.3_windows_x64_portable.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x64_portable.zip) |
-| x86 | [OpenMind-Studio_1.0.3_windows_x86_setup.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x86_setup.exe) | [OpenMind-Studio_1.0.3_windows_x86.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x86.msi) | [OpenMind-Studio_1.0.3_windows_x86_portable.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x86_portable.zip) |
+| x86 | Not published | [OpenMind-Studio_1.0.3_windows_x86.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x86.msi) | [OpenMind-Studio_1.0.3_windows_x86_portable.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x86_portable.zip) |
 
 Setup is recommended for normal installations. MSI may require administrator privileges; portable ZIP is useful on restricted computers. No operating-system restrictions should be bypassed.
 
