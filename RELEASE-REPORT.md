@@ -1,4 +1,6 @@
-# OpenMind Studio 1.0.2 — release artifacts
+# OpenMind Studio 1.0.2 — historical release artifacts
+
+> **Archived v1.0.2 report.** The current published version is [v1.0.3](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.3). This report preserves historical v1.0.2 build and validation data and must not be interpreted as current v1.0.3/v1.0.4 verification or a statement of actual Authenticode signing status for newer releases.
 
 - Version: **1.0.2**
 - Channel: **Stable**
