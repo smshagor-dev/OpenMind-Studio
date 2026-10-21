@@ -1,186 +1,145 @@
-# OpenMind Studio v1.0.3 — current stable release
+# OpenMind Studio v1.0.4 — Release Notes
 
-**Published:** October 13, 2026  
-**Previous:** v1.0.2  
-**Platforms:** Windows x64/x86; Linux x64/x86  
-**Download:** https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.3
+**Published:** 21 October 2026 · **Previous:** v1.0.3 · **Platforms:** Windows x64/x86, Linux x64/x86
 
-This document tracks the **published** release, not an internal development build. The canonical published changelog is on the release page.
+[Download v1.0.4](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4) · [Verify checksums](SHA256SUMS.txt)
 
-# OpenMind Studio v1.0.3
+The published Windows and Linux packages are unsigned. This release has no signed automatic-update feed, so install v1.0.4 manually. See **Known limitations** below.
 
-**Release date:** October 13, 2026  
-**Previous version:** v1.0.2  
-**Release highlights:** Collaborative Workspace Preview, Built-in Browser, Automatic Updates, Smarter Installation, and Multi-PC Reliability
+## New
 
-OpenMind Studio v1.0.3 brings a substantial set of new capabilities to the portable desktop development environment. This release introduces an early collaborative editing experience, an integrated browser for frontend development, an automatic update system, and major improvements to Windows installation, shared network deployments, and reliability.
+### OpenMindAI Agent — a local coding agent in the editor
 
-## ✨ New Features
+- A new activity-bar panel, in the style of Claude Code: a chat that can read, search and edit your project, run
+  commands, work with Git, and fetch web pages — with every edit, delete and command confirmed first (Ask by
+  default; Accept Edits and Plan modes are also available), a running todo list, and Undo for its last turn.
+- Supports local inference through the bundled on-device engine. Cloud inference is available only when you choose OpenMind Cloud and configure its credentials.
+- **OpenMind Cloud** (optional): three hosted models (OpenMindAI Super/Ultra/Lite) reachable with your own Developer
+  API key (DPAPI-encrypted, never shared or hard-coded). A Local/Cloud switch in Agent Settings remembers each side's
+  last model; the Cloud address is visible and can be changed; a sign-up link is offered.
+  Local inference runs through the on-device engine; using OpenMind Cloud sends selected AI requests to the configured service.
+- A branded setup dialog (model download with a size/RAM estimate, first preload) instead of a bare picker.
+  Starting with no folder open now opens Documents for the Agent instead of leaving it with nothing to work in, and
+  no project folder is created until the Agent actually needs one.
+- Queued tasks: send more than one request and they run in order, with their own execution limits and permissions,
+  and resume cleanly if one is interrupted.
+  Persistent chat history with attachments, optional media/search tools and GPU controls, and a slash (`/`) command
+  center for saved, repeatable workflows.
 
-### Collaborative Workspace (Preview)
+### Editor right-click menu
 
-- **Room-based collaboration:** Share a project folder from the owner's computer and invite others to join using a Room Code, without an OpenMind account.
-- **Real-time collaborative editing:** Work on shared text documents with collaborative cursors, selections, presence, and document synchronization.
-- **Participant management:** Owner-controlled membership, roles, permissions, moderation, and an auditable history of collaboration actions.
-- **Local-first recovery:** Accepted edits are persisted before acknowledgement, with recovery and conflict-handling safeguards designed to protect work after interruptions.
-- **Flexible connectivity:** Local-network discovery and support for configured signaling, STUN, and TURN services for connections across networks.
-- **Voice collaboration infrastructure:** Peer-to-peer voice sessions and an optional classroom-oriented media-server mode.
-- **Security-focused sharing:** Authenticated participants, protected Room Codes, restricted shared paths, and authorization checks on remote operations.
+A full context menu on the editor (and on historical/compare views): Go to Definition/Declaration/References with
+Peek, Rename, Refactor, Format, a Source Control submenu (compare with working/previous revision, file history,
+blame, open on the remote, copy as a link/patch/permalink), and — when the Agent is available — quick actions
+(Explain, Review, add the file to chat, inline chat, start dictation).
 
-> **Preview notice:** Collaboration has passed automated and same-machine testing, but real two-computer LAN, cross-network, microphone/audio, and classroom validation is still pending. It should be treated as a preview, not as a fully verified production classroom solution.
+### Languages and formatting
 
-### Built-in Browser and Live Web Preview
+- **PascalABC.NET** support alongside the existing Free Pascal toolchain — install it from the Runtime Manager, run
+  `.pas` files with it, choose which compiler a project uses.
+- **Assembly (NASM)** support: a bundled NASM/GCC/GDB toolchain, the `asm-lsp` language server, Run Code for `.asm`/
+  `.s` files, and step-through debugging with GDB.
+- **Bundled offline formatters** for many more languages with nothing to install: Prettier (with PHP, shell,
+  Dockerfile, XML, SQL, TOML, Java, Svelte, Astro, Vue plugins), Ruff (Python), gofmt (Go), clang-format (C/C++/
+  Objective-C/C#), StyLua (Lua) — on top of the existing built-in JSON formatter and language-server formatting.
 
-- Run `.html` and `.htm` files directly in the editor's **Browser** panel, alongside the Output view.
-- Preview local HTML, CSS, JavaScript, images, ES modules, and local `fetch` requests through a loopback-only development server.
-- Inspect console output, JavaScript errors, rejected promises, and failed resource loads without leaving OpenMind Studio.
-- Automatically reload the active preview when supported project files change on disk or are saved in the editor.
-- Compile SCSS/Sass for previews, with compilation errors displayed directly in the page.
-- Run a JavaScript file in the browser when Node.js is unavailable; keep the existing Node.js execution path when Node.js is installed.
-- Use built-in Reload and Open in Your Browser actions.
+### Built-in browser
 
-### Automatic and Verified Updates
+Running an HTML or JavaScript file now opens it in a browser panel beside the editor (with its console), instead of
+only a terminal/Output channel — styles, relative scripts, `fetch` of local files and SCSS/Sass compilation all work,
+and saving a served file reloads the page.
 
-- Check for stable releases from GitHub automatically, with a manual **Help → Check for Updates** action.
-- Show update availability and details from the status bar and update dialog.
-- Download eligible updates and verify their release signatures before installation.
-- Install supported Windows updates when closing the application or using **Restart to Update**.
-- Protect unsaved editor content and warn before interrupting active terminals or running programs.
-- Update portable Windows installations by replacing application files while preserving user data, settings, and runtimes.
-- Allow managed/shared installations to report new versions without modifying a shared deployment automatically.
-- Add an **Automatic Updates** preference to control automatic downloading; update availability checks can still occur when downloading is disabled.
+### Network deployment and shared installations
 
-### Smarter Installation and Deployment
+- **Network Deployment** (Help > Network Deployment, or `OpenMindStudio.exe --deploy ...`): finds OpenMind Studio
+  shared on the local network and lets you use a shared copy, or install from one (setup or portable, any folder/
+  drive, every package checked for size/SHA-256/signature first). A deployment must be trusted on each computer
+  before anything is taken from it. A 20-point Network Deployment Test can be saved as a report for IT.
+- A "Recommended for All Users" shared network installation now gives each Windows user who starts it a Desktop
+  shortcut to the share, once, automatically.
+- A portable copy can now keep **one profile per computer** (database, settings, logs) when it's used from several
+  PCs on a shared drive, chosen once on first run.
+- The Windows installer now recognizes an existing installation and offers Update/Repair in place instead of risking
+  a second, confusing install; it also refuses to downgrade.
+- Automatic update checking (GitHub Releases, a status-bar item, a required-update overlay)
+  is built and tested end to end, but is **not turned on in this build** — it needs a signing key that isn't
+  configured yet (see "Known limitations").
 
-- Add **For Me** and **Recommended for All Users** choices to the Windows setup experience.
-- Introduce an explicitly managed shared-network installation layout, with shared application/tool files and separate per-computer, per-user data.
-- Detect existing Windows installations and offer **Update** or **Repair** instead of presenting first-install questions again.
-- Add support for maintaining desktop shortcuts for network/lab deployments, including an administrator deployment script.
-- Improve MSI deployments so standard users keep their application data in writable, user-specific locations.
+### Collaboration (early preview)
 
-### Expanded Release Packaging
+A local-first collaborative "Room Code" workspace (`openmind-collab`) for editing together over a network is present
+in this build. It has not yet passed physical multi-computer or classroom validation, so treat it as a preview, not
+a finished feature.
 
-- Prepare Windows **x64 and x86** packages as NSIS Setup (`.exe`), MSI (`.msi`), and Portable ZIP (`.zip`).
-- Prepare Linux **x64 and x86** packages as DEB (`.deb`), AppImage, and Portable TAR.GZ archives.
-- Generate architecture-specific release names, SHA-256 checksums, updater signatures, and `latest.json` update metadata.
-- Introduce reproducible release collection and verification checks for Windows and Linux artifacts.
+## Updated
 
-## 🚀 Improvements
+- The Agent's local engine now reports GPU offload and CPU fallback from what llama.cpp actually did, not an
+  assumption; its "thinking" (reasoning) token budget is now bounded separately from the response, so it can't use
+  up the whole turn thinking; and it now follows the context size you actually selected for the model.
+- The Agent is faster in everyday use: independent project reads (e.g. several file lookups in one turn) now run in
+  parallel instead of one at a time, and streamed response updates are batched, so the chat stays smooth with fewer
+  background writes.
+- The Windows/Linux/macOS release layout, legal texts, the installer's licence/privacy agreement page and the
+  launcher scripts were reorganized per architecture; macOS build support was added to the release tooling (not yet
+  built — needs a Mac to run on).
+- An Authenticode code-signing workflow is built and ready (`docs/code-signing.md`), but this build has no
+  certificate configured, so the Windows files are unsigned.
 
-### Editor and Development Workflow
+## Fixed
 
-- Preserve the built-in browser's current page state when switching between Browser and Output tabs.
-- Avoid duplicate browser reloads when a file is saved just before running a preview.
-- Report HTML browser support more accurately in Project & Language Status.
-- Improve the experience of opening a saved file when no workspace folder is currently open.
+- Local inference could get stuck after a cancelled or aborted stream; the engine now recovers and releases the turn
+  properly.
+- A collaboration room joined over the network could load from a mixed/partial state; it now always loads from one
+  consistent database snapshot.
+- Windows: a file given by its short (8.3) and its long path spelling were sometimes treated as two different files;
+  they're now recognized as the same file.
+- Network/multi-computer deployments:
+  - A computer that asked for a runtime another computer was already installing into the shared folder used to fail;
+    it now waits and reuses that install.
+  - Two computers installing the same Language Tools package into a shared folder at the same time could overwrite
+    each other's record; installs now take a cross-computer lock.
+  - A complete shared runtime whose launchers couldn't be (re)written used to be unpacked again over its own files
+    (and deleted on failure); it's now used as it is, or the install stops without touching it.
+  - Composer's cache/home, the notebook runner and extension downloads no longer write into the shared network
+    folder — each computer keeps its own.
+  - A network installation started from a mapped drive could, rarely, start with an empty profile, and the
+    installing user's Desktop shortcut kept the drive letter instead of the `\\server\share` path; both are fixed,
+    and an update no longer re-adds a shortcut the user had deleted.
+- The Linux release build script could abort right after a successful build with a misleading error (a broken-pipe
+  signal while reading the build system's glibc version for the portable package's README), wasting a full rebuild;
+  it now reads that version without the faulty pipe.
 
-### Multi-PC and Portable Operation
+## Security
 
-- Separate machine-specific databases, settings, logs, browser profiles, temporary data, and tool caches from shared network installations.
-- Preserve an existing Data Scope selection instead of repeatedly asking users to configure the same installation.
-- Resolve mapped drives, UNC shares, and equivalent installation paths more consistently, preventing accidental duplicate local profiles.
-- Preserve existing profiles and settings when upgrading eligible installations.
-- Improve the recovery path when Data Scope metadata is missing, damaged, or temporarily inaccessible.
-- Keep shared runtime installations consistent across several computers through cross-process locking and safer installation handoff.
-- Isolate development tool caches for shared deployments, including package managers and language toolchains.
+- A valid release signature proves a package is a genuine release, not that the computer offering it is the one IT
+  meant: every deployment must be trusted on each computer first, and a shared installation is trusted only for its
+  exact network path.
+- Network discovery can't be used to amplify traffic at someone else's expense: an announcement whose identity
+  doesn't match its own share path, or that changes an already-found deployment's kind, is ignored.
+- The package server gives up on a client that sends its request too slowly, and won't serve a file that was
+  replaced by a symbolic link.
+- A verified package can't be swapped out between its check and its installation, and a package older than the
+  running copy is refused.
 
-### Installation and Update Safety
+## Known limitations
 
-- Perform in-place upgrades without the earlier uninstall-first flow that could alter installation layout or hide existing data.
-- Detect applications and install files that are still in use before replacing them.
-- Prevent simultaneous setup processes from modifying the same installation.
-- Reject accidental downgrades by default and avoid replacing MSI installations with an incompatible per-user setup.
-- Add signed-update verification, checksum checks, installation locking, and rollback safeguards for portable application-file replacement.
-- Add clearer update behavior for Linux: Linux builds can detect available versions, but **do not perform automatic self-replacement**.
+- Physical multi-computer testing on a real network (including a university network) is still pending.
+- The Windows programs and installers are not Authenticode-signed: SmartScreen will warn, and Smart App Control
+  (where it's on) blocks them outright. The Linux packages are not GPG-signed either.
+- This build has no automatic-update signature: it can check for updates once published, but can't self-update yet.
+- Network discovery is IPv4 only and doesn't cross routers; type the address of a computer on another subnet.
+- The Windows x86 (32-bit) package can't install the Runtime Manager's runtimes (Node.js, Python, Git, PHP ... are
+  64-bit downloads), also on 64-bit Windows; its offline language servers and Python packages run only on 64-bit
+  Windows. Use the x64 package where you can.
+- Linux packages don't include the offline language servers, formatters or Python packages, and the Runtime
+  Manager's downloads are for Windows.
+- The local-first collaboration feature is an early preview and has not been validated across a real network or in a
+  classroom setting.
+- macOS packages are not built in this release (no macOS machine available to build on); the build tooling for it
+  exists and is ready.
 
-### Security, Compliance, and Release Quality
+## Upgrade
 
-- Include a Windows application manifest for normal-user execution, supported Windows versions, and long-path handling.
-- Improve error classification and actionable messages for installation, database, and shared-runtime failures.
-- Add third-party license notices to release packages and strengthen dependency-license verification.
-- Add/update project documentation for privacy, security reporting, contributions, community conduct, deployment, and release signing.
-- Expand CI checks and release verification for Rust, TypeScript, frontend builds, artifacts, update metadata, and platform architecture.
-- Prepare integration with SignPath Foundation signing; trusted Windows code signing must still be completed separately.
-
-## 🐛 Bug Fixes
-
-### Installation and Startup
-
-- Fixed newer installers treating an existing installation as a fresh installation.
-- Fixed the previous setup flow that could uninstall an older version before updating and expose users to a different data location.
-- Fixed shared installations not being detected when originally installed by a different Windows user.
-- Fixed a case where an MSI installation could be replaced by a per-user installation.
-- Fixed unintended downgrades through the newer installer workflow.
-- Fixed startup failures for standard users running MSI installations from protected locations.
-- Fixed cases where a temporary Data Scope read failure brought back the first-run setup screen.
-- Fixed misleading startup messages that labeled unrelated profile failures as database corruption.
-
-### Multi-PC Data Protection
-
-- Fixed a network installation opening the same SQLite database from multiple computers when the layout was inferred incorrectly.
-- Added a session guard that detects another computer using the same database and refuses the conflicting start rather than risking concurrent access.
-- Fixed duplicate local profiles caused by launching the same network installation through different path aliases.
-- Fixed shared-runtime reconciliation deleting another computer's incomplete installation or disturbing an active runtime.
-- Fixed language-server extraction conflicts when multiple computers prepared the same server at the same time.
-- Fixed shared runtime permission failures displaying only a low-level lock-file error instead of explaining missing write access.
-- Fixed incorrect shared-cache placement for several development toolchains and package managers.
-
-### Browser, Networking, and Updates
-
-- Fixed preview state being lost when navigating away from the Browser panel to Output.
-- Fixed an unnecessary duplicate browser reload in the save-and-run flow.
-- Fixed an unhandled error when the Network view could not subscribe to download progress.
-- Fixed the missing end-to-end update-check wiring and the absent release-feed generation that had prevented the updater from being usable.
-- Fixed a Linux update-selection risk that could otherwise have attempted to use a Windows portable archive.
-
-### Collaboration and Testing
-
-- Fixed collaboration recovery paths that could overwrite accepted edits after an owner crash or reconnect.
-- Improved protection against stale document snapshots replacing newer shared content.
-- Fixed test-side Windows installation-record pollution and a flaky test involving transient SQLite WAL files.
-
-## 🔜 Upcoming: OpenMindAI Coding Agent
-
-We are working toward bringing the **OpenMindAI Coding Agent** into OpenMind Studio as a more integrated coding companion.
-
-Planned capabilities include:
-
-- **Context-aware coding assistance:** Get help understanding and working with code in the active project.
-- **Explain, fix, and refactor:** Ask the agent to explain code, investigate errors, and suggest improvements.
-- **Agent-assisted edits:** Review proposed code changes before applying them to project files.
-- **Local AI integration:** Explore support for compatible locally running OpenMindAI models, with an emphasis on privacy and user control.
-
-> **Coming in a future update:** The OpenMindAI Coding Agent is on the roadmap and is **not included in v1.0.3**. Features and availability may change during development.
-
-## ⚠️ Upgrade and Compatibility Notes
-
-- **One-time manual update:** OpenMind Studio v1.0.2 and earlier do not have this release's automatic update path. Download and install v1.0.3 manually once.
-- **Back up before upgrading:** v1.0.3 introduces collaboration database migrations. A database opened by v1.0.3 cannot be reopened directly by v1.0.2. Keep a pre-upgrade backup if you may need to roll back.
-- **Keep your installation type:** Update existing installations in place. For shared installations, close the application on all participating computers before upgrading the shared program files.
-- **Linux updates:** Linux builds notify users when a newer release exists but do not automatically replace their application files.
-- **32-bit Windows:** Some bundled offline language tooling is x64-only and may require separate installation on 32-bit systems.
-- **Collaboration preview:** Real-hardware multi-PC and cross-network validation remains outstanding. Local collaboration data is not a replacement for regular project backups.
-- **Code signing:** Updater `.sig` files and SHA-256 checksums are not the same as Windows Authenticode signatures. Verify the published artifacts and trusted signing status before distributing them as signed builds.
-
----
-
-**OpenMind Studio** — A portable-first desktop development environment built with Rust, Tauri, React, TypeScript, and Monaco Editor.
-
-**Changes since:** v1.0.2
-
-
----
-
-## Upcoming v1.0.4 — not published
-
-Prepared improvements focus on local-network deployment discovery and explicit trust, verification of deployment packages, per-user shared-install Desktop shortcuts, improvements to runtime/language-tools locking and mapped-drive profiles, cache isolation and safer network package serving.
-
-Physical multi-PC university-network validation is still pending; Windows packages are not trusted Authenticode-signed. Do not advertise a v1.0.4 GitHub release before it is actually published.
-
-### AI Coding Agent status
-
-Configurable AI chat/provider integration exists in the development architecture, but an autonomous AI Coding Agent (multi-file workspace edits, tool execution, approval controls and durable/resumable tasks) is **not confirmed as a delivered feature** of v1.0.3 or v1.0.4. This is upcoming development, not part of the verified v1.0.4 release highlights.
-
-## Historical releases
-
-[v1.0.2](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.2) · [v1.0.1](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.1)
+- **Manual upgrade required:** This published build has no signed updater feed. Download v1.0.4 from GitHub Releases, back up important work, and update in place. This applies to v1.0.3 and earlier.
+- Shared network folder: everyone closes OpenMind Studio, then run the new setup on one computer with the same
+  folder.
