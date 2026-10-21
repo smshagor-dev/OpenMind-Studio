@@ -1,140 +1,48 @@
-# OpenMind Studio 1.0.2 — historical release artifacts
+# OpenMind Studio v1.0.4 — Release Artifact Report
 
-> **Archived v1.0.2 report.** The current published version is [v1.0.3](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.3). This report preserves historical v1.0.2 build and validation data and must not be interpreted as current v1.0.3/v1.0.4 verification or a statement of actual Authenticode signing status for newer releases.
+**Published:** 21 October 2026  
+**Release:** [v1.0.4](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4)  
+**Platforms:** Windows x64/x86, Linux x64/x86  
+**Code signing:** Windows packages unsigned; Linux packages not GPG-signed  
+**Automatic updates:** Unavailable for this build; updater signature/feed not generated
 
-- Version: **1.0.2**
-- Channel: **Stable**
-- Platforms: **Windows, Linux**
-- Windows architectures: **x64, x86**
-- Linux architecture: **x86_64 / amd64**
-- License: **Apache-2.0**
-- Release: [v1.0.2](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.2)
+This report lists the 12 installable packages published with v1.0.4. The asset names, sizes and SHA-256 values are matched against GitHub's published asset metadata and the supplied v1.0.4 checksum manifest. These integrity hashes are **not** code signatures.
 
-## Expected published assets
+## Published packages
 
-### Windows
+| Package | Format | Size (MB) | SHA-256 |
+| --- | --- | ---: | --- |
+| `OpenMind-Studio_1.0.4_linux_x64_portable.tar.gz` | Portable archive | 23.9 | `9bf384232e148802881880b7f1649b2d784584e3a560be149bac2d78463e9e0e` |
+| `OpenMind-Studio_1.0.4_linux_x64.AppImage` | AppImage | 124.8 | `c2c31c14b5629e80820805eaa944c99c239ee960a8c65b4a19fc7538bfeb3f95` |
+| `OpenMind-Studio_1.0.4_linux_x64.deb` | DEB | 24.4 | `08402ce3922c211d71928056adee4b093bcd7e65dee3cbbf853afed5c1d70ddb` |
+| `OpenMind-Studio_1.0.4_linux_x86_portable.tar.gz` | Portable archive | 23.7 | `e152499b11f3cf71174597a70b1a25ba3fec33f211705f83c335b5f0e50c0031` |
+| `OpenMind-Studio_1.0.4_linux_x86.AppImage` | AppImage | 120.5 | `39a286f2a7b5058c3c328aeb2671edc2d35ecc356e79edc527b631c46538e448` |
+| `OpenMind-Studio_1.0.4_linux_x86.deb` | DEB | 24.1 | `3f73754725f8327aee5803d14896bf38ea74bd15614fc467537f16f4617d916d` |
+| `OpenMind-Studio_1.0.4_windows_x64_portable.zip` | Portable ZIP | 195.6 | `08b08e19b98b91d15f6fcd0f46cb026784d7da8da96d143a11a39d7910484795` |
+| `OpenMind-Studio_1.0.4_windows_x64_setup.exe` | Setup EXE | 176.1 | `ecfe5193b6f941011f21c3584279fef596e551e78e5ed54a26f5388cc0fadceb` |
+| `OpenMind-Studio_1.0.4_windows_x64.msi` | MSI | 196.4 | `de9b45c4a5acdf7f959a6aca554f4cd97f983f2d61bb06844495a89dbb0d7e98` |
+| `OpenMind-Studio_1.0.4_windows_x86_portable.zip` | Portable ZIP | 194.5 | `286f43d386dcb83a77d0b78856c1c2adb809d6800f1911cd3af29044c7c3e2d7` |
+| `OpenMind-Studio_1.0.4_windows_x86_setup.exe` | Setup EXE | 175.7 | `473a0a4e178b1ea67464881b88ba1be47df6354a5c6c579f8f0753c76e878871` |
+| `OpenMind-Studio_1.0.4_windows_x86.msi` | MSI | 195.3 | `c8933796c87b2784d3a8282697f1deaee9a26a3abb1b30d3d4c339670c6cc36c` |
 
-| File | Platform | Kind | Verification |
-| --- | --- | --- | --- |
-| `OpenMind-Studio-Setup-1.0.2-x64.exe` | Windows x64 | EXE installer | Authenticode + release signature + SHA-256 |
-| `OpenMind-Studio-1.0.2-x64.msi` | Windows x64 | MSI installer | Authenticode + release signature + SHA-256 |
-| `OpenMind-Studio-1.0.2-x64-portable.zip` | Windows x64 | Portable ZIP | detached signature + SHA-256 |
-| `OpenMind-Studio-Setup-1.0.2-x86.exe` | Windows x86 | EXE installer | Authenticode + release signature + SHA-256 |
-| `OpenMind-Studio-1.0.2-x86.msi` | Windows x86 | MSI installer | Authenticode + release signature + SHA-256 |
-| `OpenMind-Studio-1.0.2-x86-portable.zip` | Windows x86 | Portable ZIP | detached signature + SHA-256 |
+[Download all packages](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4) · [Checksums](SHA256SUMS.txt)
 
-### Linux
+Additional launch scripts are included on GitHub Releases: `Start.OpenMind.Studio.bat` (Windows), `openmind-studio.sh` (Linux), and `Start.OpenMind.Studio.command` (macOS). The macOS script **is not a macOS application package**.
 
-| File | Platform | Kind | Verification |
-| --- | --- | --- | --- |
-| `OpenMind-Studio-1.0.2-amd64.deb` | Linux x86_64 | DEB | detached signature + SHA-256 |
-| `OpenMind-Studio-1.0.2-x86_64.AppImage` | Linux x86_64 | AppImage | detached signature + SHA-256 |
-| `OpenMind-Studio-1.0.2-linux-x86_64-portable.tar.gz` | Linux x86_64 | Portable archive | detached signature + SHA-256 |
+## Release verification status
 
-### Verification files
+- All 12 published package checksums match the supplied checksum manifest and GitHub release asset metadata.
+- The supplied Windows build report records a build on **21 October 2026, 08:13 UTC**, and explicitly reports no configured Windows code-signing certificate.
+- The Windows build report states no updater signatures were produced, so no signed automatic update feed was generated.
+- The supplied release notes also identify Linux packages as not GPG-signed.
+- Physical multi-computer and classroom acceptance tests remain pending.
+- macOS release binaries were not built for v1.0.4.
+- These records do **not** establish end-user installation success, runtime feature verification, independent checksum recomputation from downloaded binaries, or trusted code-signing.
 
-The v1.0.2 release also publishes the supported detached `.sig` files plus:
+## Distribution and upgrade
 
-- `SHA256SUMS.txt`
-- `SHA256SUMS.txt.sig`
+Prefer x64 on compatible systems. Select Setup EXE/MSI for installed Windows use, Portable ZIP for removable/shared media, DEB/AppImage for appropriate Linux systems, or the Linux portable archive.
 
-Exact artifact sizes and SHA-256 values are generated from the **final signed release files** during publication and must match the GitHub Release assets.
+Download v1.0.4 manually. Back up work before upgrading; for shared installations, close OpenMind Studio on all clients and update the existing network installation from one computer. Do not distribute these packages as Authenticode- or GPG-signed.
 
-## Validation status
-
-The v1.0.2 codebase passed the required pre-release validation:
-
-| Check | Result |
-| --- | --- |
-| Rust formatting | PASS |
-| Rust clippy, warnings denied | PASS |
-| Rust workspace tests | **1,454 passed, 0 failed, 21 ignored** |
-| TypeScript typecheck | PASS |
-| ESLint | PASS |
-| Frontend tests | **2,113 passed** across 187 files |
-| Production frontend build | PASS |
-| Multi-PC portable simulation | PASS |
-
-## Multi-computer validation
-
-The v1.0.2 simulation verified:
-
-- different computers receive different machine profiles
-- cloned lab PCs with the same MachineGuid can still be separated by valid hardware identity
-- reconnecting the same computer restores the same profile
-- drive-letter and portable-folder relocation do not require runtime reinstallation
-- Runtime Manager installations remain shared across computers
-- Language Tools remain shared across computers
-- Node, Python and PHP execute from the shared portable installation on another profile
-- MariaDB binaries remain shared while database data is isolated
-- WebView2, AI history, search indexes, logs and temporary state are isolated
-- switching data scope does not reinstall runtimes
-- legacy database migration preserves the original source database
-- raw machine identifiers are not stored in profile names or release-facing state
-
-## Data architecture
-
-### Shared across computers
-
-- OpenMind Studio application
-- Runtime Manager downloads and installed runtimes
-- Node.js
-- Python
-- Go
-- Rust
-- PHP
-- MariaDB binaries
-- Git
-- Fortran
-- Pascal
-- Assembly tools
-- language servers
-- formatters
-- linters
-- debuggers
-- Language Tools packages
-
-### Isolated per computer
-
-- application SQLite database
-- WebView2 data
-- AI conversation history
-- search index
-- logs
-- temporary/process state
-- broker and runtime mutable state
-- MariaDB databases and machine-specific configuration
-- phpMyAdmin machine-specific configuration
-
-## Storage planning
-
-Measured mutable profile usage:
-
-- approximately **15–25 MB per computer** for normal application state
-- approximately **160 MB per computer** after MariaDB/MySQL has been initialized
-
-For 1,000 computers, deployments should plan for roughly **20 GB** of normal profile data, potentially up to around **160 GB** if MariaDB is initialized on every profile.
-
-Old machine profiles are not automatically removed.
-
-## Signing notes
-
-Windows EXE/MSI artifacts are expected to be Authenticode-signed and timestamped according to the project's release-signing workflow.
-
-Portable and Linux artifacts use the project's supported detached signature workflow.
-
-Updater/release signatures are separate from Windows Authenticode signatures.
-
-Private signing keys and passwords must never be committed or published.
-
-## Publication rule
-
-Do not consider v1.0.2 fully published until:
-
-1. every expected artifact exists;
-2. every required signature has been generated and verified;
-3. `SHA256SUMS.txt` is generated from the final signed artifacts;
-4. release smoke tests pass for the environments that can be physically tested;
-5. the GitHub v1.0.2 release contains the final artifact set without duplicate names.
-
-Historical v1.0.1 release assets remain available separately.
+Historical release reports are retained in Git history. For the full list of changes see [v1.0.4 release notes](RELEASE.md).

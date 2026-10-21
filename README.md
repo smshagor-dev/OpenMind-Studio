@@ -1,55 +1,87 @@
 # OpenMind Studio
 
-**OpenMind Studio** is a portable desktop IDE for Windows and Linux, built for developers, students and shared university or office computers. It combines Monaco editing, integrated terminals, portable runtimes, language tooling, Git, debugging, file previews, extensions and optional AI assistance.
+**Portable-first desktop development environment for Windows and Linux.**
 
-**Latest published release: v1.0.3** (October 13, 2026) · **Upcoming: v1.0.4** (not published)
+OpenMind Studio combines a Monaco-based code editor, integrated terminal, debugging, Git tooling, extensions, language runtimes, a built-in web preview, and a workspace-aware coding assistant with **OpenMind Cloud** integration. It is designed for everyday development, removable drives, and shared university or office computers.
 
-[Download v1.0.3](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.3) · [All releases](https://github.com/smshagor-dev/OpenMind-Studio/releases) · [Current release notes](RELEASE.md) · [Release artifact report](RELEASE-REPORT.md)
+**Latest release: [v1.0.4](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4) — 21 October 2026**
 
-## Download v1.0.3
+[Download v1.0.4](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4) · [What's new](RELEASE.md) · [Package checksums](SHA256SUMS.txt) · [Build and signing status](RELEASE-REPORT.md) · [Previous releases](https://github.com/smshagor-dev/OpenMind-Studio/releases)
+
+## Download
+
+Download files only from the [official GitHub release](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4). This release provides 12 Windows and Linux packages across x64 and x86 architectures.
 
 ### Windows
 
-| Architecture | Setup EXE | MSI | Portable ZIP |
+| Architecture | Installer EXE | MSI | Portable ZIP |
 | --- | --- | --- | --- |
-| x64 | [OpenMind-Studio_1.0.3_windows_x64_setup.exe](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x64_setup.exe) | [OpenMind-Studio_1.0.3_windows_x64.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x64.msi) | [OpenMind-Studio_1.0.3_windows_x64_portable.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x64_portable.zip) |
-| x86 | Not published | [OpenMind-Studio_1.0.3_windows_x86.msi](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x86.msi) | [OpenMind-Studio_1.0.3_windows_x86_portable.zip](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_windows_x86_portable.zip) |
+| x64 (recommended) | [Setup EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_windows_x64_setup.exe) | [MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_windows_x64.msi) | [Portable ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_windows_x64_portable.zip) |
+| x86 (32-bit) | [Setup EXE](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_windows_x86_setup.exe) | [MSI](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_windows_x86.msi) | [Portable ZIP](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_windows_x86_portable.zip) |
 
-Setup is recommended for normal installations. MSI may require administrator privileges; portable ZIP is useful on restricted computers. No operating-system restrictions should be bypassed.
+**Installation guidance:** Choose Setup EXE for a standard install, MSI for managed deployment, or ZIP if you need a portable copy. Some Windows x86 language tools and Runtime Manager downloads require 64-bit Windows; choose x64 wherever possible.
 
 ### Linux
 
-| Architecture | DEB | AppImage | Portable tar.gz |
+| Architecture | DEB | AppImage | Portable archive |
 | --- | --- | --- | --- |
-| x64 | [OpenMind-Studio_1.0.3_linux_x64.deb](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_linux_x64.deb) | [OpenMind-Studio_1.0.3_linux_x64.AppImage](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_linux_x64.AppImage) | [OpenMind-Studio_1.0.3_linux_x64_portable.tar.gz](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_linux_x64_portable.tar.gz) |
-| x86 | [OpenMind-Studio_1.0.3_linux_x86.deb](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_linux_x86.deb) | [OpenMind-Studio_1.0.3_linux_x86.AppImage](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_linux_x86.AppImage) | [OpenMind-Studio_1.0.3_linux_x86_portable.tar.gz](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.3/OpenMind-Studio_1.0.3_linux_x86_portable.tar.gz) |
+| x64 | [DEB](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_linux_x64.deb) | [AppImage](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_linux_x64.AppImage) | [Portable tar.gz](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_linux_x64_portable.tar.gz) |
+| x86 | [DEB](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_linux_x86.deb) | [AppImage](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_linux_x86.AppImage) | [Portable tar.gz](https://github.com/smshagor-dev/OpenMind-Studio/releases/download/v1.0.4/OpenMind-Studio_1.0.4_linux_x86_portable.tar.gz) |
 
-Linux packages may require system GTK/WebKitGTK libraries. Use the release page to verify available assets and platform requirements. **macOS packages are not included in the published v1.0.3 assets.**
+Linux systems may need GTK/WebKitGTK dependencies. Bundled Windows language tools and Runtime Manager downloads are not included in the Linux builds.
 
-## v1.0.3 highlights
+**macOS:** Build tooling and a launcher script are available, but **no macOS application package was produced for v1.0.4**. The `.command` asset is not an installer.
 
-- Collaborative workspace **preview** with room codes, live editing and presence. Real-world multi-computer validation remains limited.
-- Built-in browser for frontend development, including saved-page preview and console workflows.
-- Automatic update checks and signature verification, with platform-appropriate install policies.
-- Windows setup choices for per-user and shared-network deployments, with improved upgrades and repairs.
-- Better per-machine data isolation, shared runtime coordination and Linux/Windows packaging.
+## What's new in v1.0.4
 
-See the [official v1.0.3 release](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.3) for the complete changelog.
+### Coding assistant and OpenMind Cloud
 
-## AI assistance and coding agent
+- Project-aware chat to inspect, explain, search, and propose code changes, with confirmation before potentially destructive operations.
+- Workspace-aware tasks, a task queue, conversation history, attachments, Undo, and slash-command workflows.
+- **OpenMind Cloud** support through a user-supplied Developer API key and configurable service endpoint; cloud access requires successful configuration and connectivity.
+- A guided AI setup experience and smoother streaming responses. Availability of individual tools depends on runtime configuration and permissions.
 
-OpenMind Studio has an **existing configurable AI chat/provider integration** in its development architecture. This is distinct from a complete autonomous coding agent, and provider/model availability depends on user configuration.
+### Editor and language tools
 
-**AI Coding Agent is upcoming, not confirmed as shipped in v1.0.3 or the prepared v1.0.4 build.** Workspace-wide autonomous changes, multi-file edits, tool execution, approval policies and resumable tasks must not be claimed as released until implementation and packaged-app tests establish that status.
+- Expanded right-click menu with Go to, Peek, Rename, Refactor, Format, source-control history, compare, blame, and assistant actions.
+- PascalABC.NET and Free Pascal compiler selection, NASM assembly tools, language-server assistance and debugging.
+- Additional bundled offline formatters, including Prettier integrations, Ruff, gofmt, clang-format, and StyLua.
+- Built-in browser panel with a developer console, local HTML/JavaScript previews, SCSS/Sass handling, and reload on save.
 
-## Upcoming v1.0.4 (not yet published)
+### Shared PCs and network deployment
 
-The prepared v1.0.4 development release focuses on **Network Deployment** (LAN discovery, explicit trust and verified release packages), shared-installation Desktop shortcut deployment for Windows users, runtime/language-tools concurrency fixes, mapped-drive profile reliability, per-computer cache isolation and network hardening.
+- Network discovery and explicit trust for shared installations and verified package transfers.
+- Portable profiles isolated per computer, including databases, settings, and logs.
+- Safer cross-computer runtime and language tool installations, UNC path handling, and in-place Windows Update/Repair.
+- A 20-point network deployment diagnostic report for IT administrators.
+- Room-code collaborative editing remains an **early preview**, pending physical multi-PC and classroom validation.
 
-Physical testing across multiple university PCs remains pending. Windows installers are not currently trusted Authenticode-signed; Windows security warnings or restrictions may apply. v1.0.4 downloads will appear on [GitHub Releases](https://github.com/smshagor-dev/OpenMind-Studio/releases) only when published.
+For detailed fixes, security changes, and compatibility notes, see [Release Notes](RELEASE.md).
 
-## About this repository
+## Install and update safely
 
-This public repository hosts OpenMind Studio release information and public download assets. Development source code and private signing material are maintained separately; do not assume this repository contains the complete application source.
+**v1.0.4 is published but unsigned.** Windows Authenticode and Linux GPG signing have not been applied to these packages. Windows may display security warnings, and some managed devices can block unsigned applications. Follow your organization's installation policies.
 
-**License:** [Apache 2.0](LICENSE) · **Developer:** [Md Shahanur Islam Shagor](https://github.com/smshagor-dev) · [Portfolio](https://smshagor.com)
+The automatic-update interface exists, but **v1.0.4 has no signed update feed**, so download and install the update manually. Keep your existing installation type when upgrading, and back up important projects first. For shared network installations, ensure everyone closes the app before replacing the program files.
+
+Verify your package using [SHA256SUMS.txt](SHA256SUMS.txt). SHA-256 verifies integrity; it does not by itself establish publisher authenticity.
+
+## Privacy and security
+
+OpenMind Studio keeps editor settings, project indexes, and local history in its configured local or per-machine storage. When you use **OpenMind Cloud**, prompts and any project context or attachments selected for the request are sent to the configured online service. Do not send sensitive materials without reviewing what is included.
+
+Windows credentials are protected with DPAPI as documented; equivalent encryption is not yet available for stored secrets on Linux/macOS. See [Privacy Policy](PRIVACY-POLICY.md), [License Agreement](EULA.md), [Terms of Use](TERMS-OF-USE.md), and [Third-party Licenses](THIRD-PARTY-LICENSES.txt).
+
+## Release availability
+
+| Version | Status | Notes |
+| --- | --- | --- |
+| [v1.0.4](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4) | Published · latest | New coding assistant, OpenMind Cloud integration, expanded tools and network deployment |
+| [v1.0.3](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.3) | Previous release | Collaboration preview, browser, installer and multi-PC reliability |
+| [Earlier releases](https://github.com/smshagor-dev/OpenMind-Studio/releases) | Historical | Previous releases and archived assets |
+
+## Repository, license and developer
+
+This public repository provides OpenMind Studio release information and downloadable builds. The application source and private signing configuration are maintained separately; this repository is not the full desktop application source.
+
+**License:** [Apache License 2.0](LICENSE) · **Developer:** [Md Shahanur Islam Shagor](https://github.com/smshagor-dev) · **Website:** [smshagor.com](https://smshagor.com)
