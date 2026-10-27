@@ -1,8 +1,8 @@
 # OpenMind Studio Privacy Policy
 
 **Effective date:** the publication date of OpenMind Studio 1.0.3
-**Last updated:** 21 October 2026
-**Applies to:** OpenMind Studio desktop editor, version 1.0.4 (Windows and Linux packages; macOS build tooling only)
+**Last updated:** 27 October 2026
+**Applies to:** OpenMind Studio desktop editor, version 1.0.5 (published Windows x64 and Linux x64 packages)
 
 This policy explains what OpenMind Studio stores on your computer, what it sends over the network, when, and to whom.
 OpenMind Studio is a desktop program without built-in product telemetry, advertising or automatic crash reporting. Local project data is not uploaded merely by opening the editor. When you deliberately use online features, such as **OpenMind Cloud**, selected requests and content are transmitted to the service involved. Those services have separate data-processing policies; this document describes the desktop application's behavior.
@@ -43,7 +43,7 @@ without encryption.** Protect that folder accordingly.
 
 ### 3.1 Automatically
 
-1. **Update check.** The application can check GitHub Releases for version information. GitHub receives ordinary network metadata (including IP address). **Version 1.0.4 does not have a signed update feed and cannot automatically install itself.** When a signed update feed is available, supported platforms may download and verify eligible updates under the application's update settings. Linux packages require manual installation.
+1. **Update check.** The application can check GitHub Releases for version information. GitHub receives ordinary network metadata (including IP address). The v1.0.5 release currently has no standalone signed updater feed attached; automatic installation of that release should not be assumed. When a signed update feed is available, supported platforms may download and verify eligible updates under the application's update settings. Linux packages require manual installation.
 2. **Extension marketplace list.** While the **Extensions** view is shown, the list of popular extensions is loaded from
    Open VSX (`open-vsx.org`, operated by the Eclipse Foundation). Turn this off with **Settings > Extensions > Load
    Marketplace Automatically**. Open VSX is then contacted only when you search, open an extension page or install an
@@ -89,7 +89,7 @@ Local data is kept until you delete it.
 
 ## 6. Security
 
-Downloads are verified with pinned checksums or signatures where the source allows it. Automatic installation requires a valid supported update signature and is unavailable for the unsigned v1.0.4 updater feed. Secrets are encrypted on Windows (see section 2). No method of storage or
+Downloads are verified with pinned checksums or signatures where the source allows it. Automatic installation requires a valid supported update signature and is unavailable without a valid signed updater feed. Secrets are encrypted on Windows (see section 2). No method of storage or
 transmission is completely secure, and you are responsible for the security of your computer and of the services you
 connect.
 

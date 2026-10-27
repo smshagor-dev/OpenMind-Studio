@@ -1,145 +1,68 @@
-# OpenMind Studio v1.0.4 — Release Notes
+# OpenMind Studio v1.0.5 — Release Notes
 
-**Published:** 21 October 2026 · **Previous:** v1.0.3 · **Platforms:** Windows x64/x86, Linux x64/x86
+**Released:** October 27, 2026 · **Previous:** v1.0.4 · **Available builds:** Windows x64, Linux x64
 
-[Download v1.0.4](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.4) · [Verify checksums](SHA256SUMS.txt)
+[Download v1.0.5](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.5) · [Available packages](README.md#downloads)
 
-The published Windows and Linux packages are unsigned. This release has no signed automatic-update feed, so install v1.0.4 manually. See **Known limitations** below.
+OpenMind Studio v1.0.5 improves VS Code extension compatibility, editor recovery, OpenMind AI Cloud settings, and Windows Pascal development. Highlights are grounded in merged source commits after v1.0.4; they do not imply all third-party extensions or supported environments have passed end-to-end testing.
 
-## New
+## New and improved
 
-### OpenMindAI Agent — a local coding agent in the editor
+### VS Code extension compatibility
+- Expanded VS Code settings, profiles, and extension import, including running imported extensions.
+- Added native ESM extension support, inline completions, and native dialog APIs.
+- Expanded Monaco extension interfaces for decorations, snippets, selections, editor focus, columns, indentation, line numbers, undo/EOL behavior, and edit validation.
+- Added more language APIs for semantic tokens, inlay hints, colors, language configurations, and lifecycle events.
+- Added extension workspace-folder quick picking, task pseudoterminals, debugger source documents, and notebook interactions.
+- Improved extension terminal and window-focus events and save participants.
 
-- A new activity-bar panel, in the style of Claude Code: a chat that can read, search and edit your project, run
-  commands, work with Git, and fetch web pages — with every edit, delete and command confirmed first (Ask by
-  default; Accept Edits and Plan modes are also available), a running todo list, and Undo for its last turn.
-- Supports local inference through the bundled on-device engine. Cloud inference is available only when you choose OpenMind Cloud and configure its credentials.
-- **OpenMind Cloud** (optional): three hosted models (OpenMindAI Super/Ultra/Lite) reachable with your own Developer
-  API key (DPAPI-encrypted, never shared or hard-coded). A Local/Cloud switch in Agent Settings remembers each side's
-  last model; the Cloud address is visible and can be changed; a sign-up link is offered.
-  Local inference runs through the on-device engine; using OpenMind Cloud sends selected AI requests to the configured service.
-- A branded setup dialog (model download with a size/RAM estimate, first preload) instead of a bare picker.
-  Starting with no folder open now opens Documents for the Agent instead of leaving it with nothing to work in, and
-  no project folder is created until the Agent actually needs one.
-- Queued tasks: send more than one request and they run in order, with their own execution limits and permissions,
-  and resume cleanly if one is interrupted.
-  Persistent chat history with attachments, optional media/search tools and GPU controls, and a slash (`/`) command
-  center for saved, repeatable workflows.
+### Editor and document recovery
+- Added named and unnamed untitled documents with native Save As support.
+- Added writable provider-backed virtual documents and read-only editor mutation guards.
+- Improved recovery of unsaved local files and virtual/provider-backed buffers.
+- Isolated recovery records across windows and improved extra-window restoration.
+- Flushed editor buffers before Quit and updates; improved protection when on-disk content conflicts.
 
-### Editor right-click menu
+### OpenMind AI Cloud
+- Redesigned OpenMind AI Cloud provider settings.
+- Removed desktop-side text and generation caps in supported input flows. Actual context, output, and rate limits still depend on the chosen model/provider.
 
-A full context menu on the editor (and on historical/compare views): Go to Definition/Declaration/References with
-Peek, Rename, Refactor, Format, a Source Control submenu (compare with working/previous revision, file history,
-blame, open on the remote, copy as a link/patch/permalink), and — when the Agent is available — quick actions
-(Explain, Review, add the file to chat, inline chat, start dictation).
-
-### Languages and formatting
-
-- **PascalABC.NET** support alongside the existing Free Pascal toolchain — install it from the Runtime Manager, run
-  `.pas` files with it, choose which compiler a project uses.
-- **Assembly (NASM)** support: a bundled NASM/GCC/GDB toolchain, the `asm-lsp` language server, Run Code for `.asm`/
-  `.s` files, and step-through debugging with GDB.
-- **Bundled offline formatters** for many more languages with nothing to install: Prettier (with PHP, shell,
-  Dockerfile, XML, SQL, TOML, Java, Svelte, Astro, Vue plugins), Ruff (Python), gofmt (Go), clang-format (C/C++/
-  Objective-C/C#), StyLua (Lua) — on top of the existing built-in JSON formatter and language-server formatting.
-
-### Built-in browser
-
-Running an HTML or JavaScript file now opens it in a browser panel beside the editor (with its console), instead of
-only a terminal/Output channel — styles, relative scripts, `fetch` of local files and SCSS/Sass compilation all work,
-and saving a served file reloads the page.
-
-### Network deployment and shared installations
-
-- **Network Deployment** (Help > Network Deployment, or `OpenMindStudio.exe --deploy ...`): finds OpenMind Studio
-  shared on the local network and lets you use a shared copy, or install from one (setup or portable, any folder/
-  drive, every package checked for size/SHA-256/signature first). A deployment must be trusted on each computer
-  before anything is taken from it. A 20-point Network Deployment Test can be saved as a report for IT.
-- A "Recommended for All Users" shared network installation now gives each Windows user who starts it a Desktop
-  shortcut to the share, once, automatically.
-- A portable copy can now keep **one profile per computer** (database, settings, logs) when it's used from several
-  PCs on a shared drive, chosen once on first run.
-- The Windows installer now recognizes an existing installation and offers Update/Repair in place instead of risking
-  a second, confusing install; it also refuses to downgrade.
-- Automatic update checking (GitHub Releases, a status-bar item, a required-update overlay)
-  is built and tested end to end, but is **not turned on in this build** — it needs a signing key that isn't
-  configured yet (see "Known limitations").
-
-### Collaboration (early preview)
-
-A local-first collaborative "Room Code" workspace (`openmind-collab`) for editing together over a network is present
-in this build. It has not yet passed physical multi-computer or classroom validation, so treat it as a preview, not
-a finished feature.
-
-## Updated
-
-- The Agent's local engine now reports GPU offload and CPU fallback from what llama.cpp actually did, not an
-  assumption; its "thinking" (reasoning) token budget is now bounded separately from the response, so it can't use
-  up the whole turn thinking; and it now follows the context size you actually selected for the model.
-- The Agent is faster in everyday use: independent project reads (e.g. several file lookups in one turn) now run in
-  parallel instead of one at a time, and streamed response updates are batched, so the chat stays smooth with fewer
-  background writes.
-- The Windows/Linux/macOS release layout, legal texts, the installer's licence/privacy agreement page and the
-  launcher scripts were reorganized per architecture; macOS build support was added to the release tooling (not yet
-  built — needs a Mac to run on).
-- An Authenticode code-signing workflow is built and ready (`docs/code-signing.md`), but this build has no
-  certificate configured, so the Windows files are unsigned.
+### Pascal tooling
+- Added PascalABC.NET as an optional Windows compiler alongside Free Pascal, with Runtime Manager integration, compiler selection, offline packaging, Run Code, and error diagnostics.
+- Improved extraction of ZIP filenames encoded with DOS Cyrillic code page 866.
 
 ## Fixed
+- Extension activation race conditions and filesystem permission escape cases.
+- Truncated extension-store implementation and related tests.
+- Native extension-host channel allowlist handling.
+- Document provider ownership on failed registration.
+- Stale snippet insertions and extension decoration placement in Monaco editors.
+- Debugger transport cleanup and document identity handling during Save As.
+- Conflicts affecting unsaved local file recovery and multi-window sessions.
+- Extension language-configuration lifecycle cleanup.
 
-- Local inference could get stuck after a cancelled or aborted stream; the engine now recovers and releases the turn
-  properly.
-- A collaboration room joined over the network could load from a mixed/partial state; it now always loads from one
-  consistent database snapshot.
-- Windows: a file given by its short (8.3) and its long path spelling were sometimes treated as two different files;
-  they're now recognized as the same file.
-- Network/multi-computer deployments:
-  - A computer that asked for a runtime another computer was already installing into the shared folder used to fail;
-    it now waits and reuses that install.
-  - Two computers installing the same Language Tools package into a shared folder at the same time could overwrite
-    each other's record; installs now take a cross-computer lock.
-  - A complete shared runtime whose launchers couldn't be (re)written used to be unpacked again over its own files
-    (and deleted on failure); it's now used as it is, or the install stops without touching it.
-  - Composer's cache/home, the notebook runner and extension downloads no longer write into the shared network
-    folder — each computer keeps its own.
-  - A network installation started from a mapped drive could, rarely, start with an empty profile, and the
-    installing user's Desktop shortcut kept the drive letter instead of the `\\server\share` path; both are fixed,
-    and an update no longer re-adds a shortcut the user had deleted.
-- The Linux release build script could abort right after a successful build with a misleading error (a broken-pipe
-  signal while reading the build system's glibc version for the portable package's README), wasting a full rebuild;
-  it now reads that version without the faulty pipe.
+## Packages published
 
-## Security
+- **Windows x64:** NSIS setup EXE, MSI, portable ZIP.
+- **Linux x64:** DEB, AppImage, portable tar.gz.
+- **Windows/Linux x86 and macOS installers:** not uploaded for this release.
 
-- A valid release signature proves a package is a genuine release, not that the computer offering it is the one IT
-  meant: every deployment must be trusted on each computer first, and a shared installation is trusted only for its
-  exact network path.
-- Network discovery can't be used to amplify traffic at someone else's expense: an announcement whose identity
-  doesn't match its own share path, or that changes an already-found deployment's kind, is ignored.
-- The package server gives up on a client that sends its request too slowly, and won't serve a file that was
-  replaced by a symbolic link.
-- A verified package can't be swapped out between its check and its installation, and a package older than the
-  running copy is refused.
+Use only links from the [official v1.0.5 release](https://github.com/smshagor-dev/OpenMind-Studio/releases/tag/v1.0.5).
 
-## Known limitations
+## Known limitations and security
 
-- Physical multi-computer testing on a real network (including a university network) is still pending.
-- The Windows programs and installers are not Authenticode-signed: SmartScreen will warn, and Smart App Control
-  (where it's on) blocks them outright. The Linux packages are not GPG-signed either.
-- This build has no automatic-update signature: it can check for updates once published, but can't self-update yet.
-- Network discovery is IPv4 only and doesn't cross routers; type the address of a computer on another subnet.
-- The Windows x86 (32-bit) package can't install the Runtime Manager's runtimes (Node.js, Python, Git, PHP ... are
-  64-bit downloads), also on 64-bit Windows; its offline language servers and Python packages run only on 64-bit
-  Windows. Use the x64 package where you can.
-- Linux packages don't include the offline language servers, formatters or Python packages, and the Runtime
-  Manager's downloads are for Windows.
-- The local-first collaboration feature is an early preview and has not been validated across a real network or in a
-  classroom setting.
-- macOS packages are not built in this release (no macOS machine available to build on); the build tooling for it
-  exists and is ready.
+- Not all VS Code extension APIs are supported. Compatibility varies by extension.
+- PascalABC.NET is Windows-only and does not include its own language server or debugger.
+- Linux builds require compatible GTK/WebKitGTK and glibc.
+- Desktop AI input changes cannot bypass provider-side or model context limits.
+- No standalone v1.0.5 updater signature or `latest.json` asset is currently attached to the release; do not rely on automatic installation of this version.
+- Operating-system publisher signing (such as Windows Authenticode) is independent of updater signing and must be checked on the binaries.
 
-## Upgrade
+## Upgrading
 
-- **Manual upgrade required:** This published build has no signed updater feed. Download v1.0.4 from GitHub Releases, back up important work, and update in place. This applies to v1.0.3 and earlier.
-- Shared network folder: everyone closes OpenMind Studio, then run the new setup on one computer with the same
-  folder.
+1. Save changes and close the editor.
+2. Download the correct v1.0.5 package.
+3. Upgrade your existing install or replace only portable program files while preserving user data.
+4. Restart and verify workspace settings, extensions, and unsaved-recovery behavior.
+
+**Previous release:** [v1.0.4 release notes](RELEASE-v1.0.4.md).
