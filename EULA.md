@@ -1,7 +1,7 @@
 # OpenMind Studio License Agreement
 
-**Version:** 1.0.4
-**Last updated:** 21 October 2026
+**Version:** 1.0.5
+**Last updated:** 27 October 2026
 
 This agreement is between you and Md Shahanur Islam Shagor, publishing as "OpenMind" (the "Licensor"). It covers the
 OpenMind Studio program, its installers, portable packages, launchers and documentation (the "Software").
@@ -39,7 +39,7 @@ on any optional feature, and it does not consent to sending any of your content 
 
 ## 5. Updates
 
-The Software may check GitHub for new versions. Automatic installation is available only for releases with a valid signed update feed. **Version 1.0.4 has no signed update feed and requires manual installation.** Updates are covered by this agreement or the applicable replacement agreement.
+The Software may check GitHub for new versions. Automatic installation is available only for releases with a valid signed update feed. The published v1.0.5 assets do not currently include a standalone signed updater feed, so manual installation is recommended. Updates are covered by this agreement or the applicable replacement agreement.
 
 ## 6. No warranty
 

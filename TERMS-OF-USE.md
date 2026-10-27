@@ -1,6 +1,6 @@
 # OpenMind Studio Terms of Use
 
-**Last updated:** 21 October 2026
+**Last updated:** 27 October 2026
 
 These terms apply to downloading OpenMind Studio from its official release page
 (<https://github.com/smshagor-dev/OpenMind-Studio/releases>) and to using its update feed. The program itself is
@@ -8,7 +8,7 @@ licensed under the **OpenMind Studio License Agreement** (`EULA.md`), which inco
 
 ## 1. Official downloads
 
-Official packages are published only on the release page above. Release packages have corresponding SHA-256 values in `SHA256SUMS.txt`. Signed automatic updates require a valid update signature, which the application verifies before installation. **v1.0.4 has no signed automatic-update feed and must be installed manually.** Packages from other sources are not official, and you use them at your own risk.
+Official packages are published only on the release page above. Release packages have corresponding SHA-256 values in `SHA256SUMS.txt`. Signed automatic updates require a valid update signature, which the application verifies before installation. The currently published v1.0.5 release has no standalone signed updater feed attached, so use the official release assets for manual installation. Packages from other sources are not official, and you use them at your own risk.
 
 Whether a package carries a trusted operating-system code signature (Windows Authenticode, Apple Developer ID) is stated
 in that release's notes. Do not assume a package is signed if the notes do not say so.
